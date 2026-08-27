@@ -4,26 +4,22 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Para mi Darling 💗</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-
 <style>
 
-/* ==================================================
-   BASE
-================================================== */
+/* =========================================================
+   FUENTES Y CONFIGURACIÓN GENERAL
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display&family=Quicksand:wght@400;500;600;700&display=swap');
 
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
 }
 
 html{
@@ -31,24 +27,22 @@ html{
 }
 
 body{
-
-    overflow-x:hidden;
-
-    color:#604c67;
-
+    margin:0;
+    color:#66536c;
     background:
     linear-gradient(
         135deg,
         #ffdce9,
         #dcecff,
-        #eadfff,
-        #fff1bd
+        #e9ddff,
+        #fff2bd
     );
 
     background-size:400% 400%;
 
-    animation:fondo 16s ease infinite;
+    animation:fondo 14s ease infinite;
 
+    overflow-x:hidden;
 }
 
 @keyframes fondo{
@@ -68,100 +62,58 @@ body{
 }
 
 
-/* ==================================================
-   DECORACIÓN FLOTANTE
-================================================== */
+/* =========================================================
+   CORAZONES DE FONDO
+========================================================= */
 
-.decoracion{
+.corazonFondo{
 
     position:fixed;
 
-    inset:0;
-
-    overflow:hidden;
+    bottom:-40px;
 
     pointer-events:none;
 
-    z-index:1;
+    z-index:0;
+
+    opacity:.45;
+
+    animation:subirCorazon linear forwards;
 
 }
 
-.flota{
+@keyframes subirCorazon{
 
-    position:absolute;
+    from{
 
-    bottom:-70px;
+        transform:
+        translateY(0)
+        rotate(0deg);
 
-    opacity:0;
-
-    font-size:24px;
-
-    animation:flotar 11s linear infinite;
-
-}
-
-.flota:nth-child(1){
-    left:5%;
-    animation-delay:0s;
-}
-
-.flota:nth-child(2){
-    left:18%;
-    animation-delay:3s;
-}
-
-.flota:nth-child(3){
-    left:31%;
-    animation-delay:6s;
-}
-
-.flota:nth-child(4){
-    left:44%;
-    animation-delay:1s;
-}
-
-.flota:nth-child(5){
-    left:58%;
-    animation-delay:5s;
-}
-
-.flota:nth-child(6){
-    left:70%;
-    animation-delay:2s;
-}
-
-.flota:nth-child(7){
-    left:82%;
-    animation-delay:7s;
-}
-
-.flota:nth-child(8){
-    left:94%;
-    animation-delay:4s;
-}
-
-@keyframes flotar{
-
-    0%{
-        transform:translateY(0) rotate(0deg);
         opacity:0;
+
     }
 
     15%{
-        opacity:.7;
+        opacity:.55;
     }
 
-    100%{
-        transform:translateY(-120vh) rotate(360deg);
+    to{
+
+        transform:
+        translateY(-115vh)
+        rotate(360deg);
+
         opacity:0;
+
     }
 
 }
 
 
-/* ==================================================
+/* =========================================================
    PORTADA
-================================================== */
+========================================================= */
 
 #inicio{
 
@@ -175,15 +127,13 @@ body{
 
     padding:25px;
 
-    text-align:center;
-
     position:relative;
 
-    z-index:5;
+    z-index:2;
 
     transition:
-    opacity 1.2s ease,
-    transform 1.2s ease;
+    opacity 1s ease,
+    transform 1s ease;
 
 }
 
@@ -191,42 +141,58 @@ body{
 
     width:100%;
 
-    max-width:650px;
+    max-width:620px;
 
-    padding:55px 28px;
+    padding:50px 25px;
 
-    border-radius:45px;
+    text-align:center;
 
-    background:rgba(255,255,255,.73);
+    border-radius:40px;
 
-    backdrop-filter:blur(16px);
+    background:
+    rgba(255,255,255,.75);
+
+    backdrop-filter:blur(15px);
 
     box-shadow:
-    0 25px 70px rgba(100,70,110,.18);
+    0 25px 70px
+    rgba(100,70,110,.20);
 
-    animation:entradaPortada 1.5s ease;
+    animation:
+    aparecer 1.4s ease;
 
 }
 
-@keyframes entradaPortada{
+@keyframes aparecer{
 
     from{
+
         opacity:0;
-        transform:translateY(35px) scale(.94);
+
+        transform:
+        translateY(35px)
+        scale(.95);
+
     }
 
     to{
+
         opacity:1;
-        transform:translateY(0) scale(1);
+
+        transform:
+        translateY(0)
+        scale(1);
+
     }
 
 }
 
-.flor-portada{
+.decoracion{
 
-    font-size:55px;
+    font-size:45px;
 
-    animation:latido 2s infinite;
+    animation:
+    latido 2s infinite;
 
 }
 
@@ -237,42 +203,52 @@ body{
     }
 
     50%{
-        transform:scale(1.14);
+        transform:scale(1.18);
     }
 
 }
 
 .portada h1{
 
-    margin:12px 0;
+    margin:15px 0 5px;
 
-    font-family:"Playfair Display",serif;
+    font-family:
+    "DM Serif Display",
+    serif;
 
-    font-size:45px;
+    font-size:
+    clamp(42px,10vw,70px);
 
-    color:#a36591;
-
-}
-
-.subtitulo{
-
-    font-family:"Dancing Script",cursive;
-
-    font-size:31px;
-
-    color:#777db5;
-
-    margin-bottom:25px;
+    color:#a86c98;
 
 }
 
-.intro{
+.ninisita{
 
-    font-family:"DM Sans",sans-serif;
+    font-family:
+    "Caveat",
+    cursive;
 
-    font-size:17px;
+    font-size:32px;
+
+    color:#7885bd;
+
+}
+
+.portadaTexto{
+
+    font-family:
+    "Quicksand",
+    sans-serif;
+
+    font-size:18px;
 
     line-height:1.8;
+
+    margin:
+    25px auto;
+
+    max-width:500px;
 
 }
 
@@ -280,114 +256,179 @@ body{
 
     border:none;
 
-    cursor:pointer;
-
-    margin-top:28px;
-
-    padding:16px 29px;
-
     border-radius:50px;
 
-    color:white;
+    padding:15px 28px;
 
-    font-family:"DM Sans",sans-serif;
-
-    font-size:16px;
-
-    font-weight:600;
+    margin-top:15px;
 
     background:
     linear-gradient(
         135deg,
-        #d89ac1,
-        #a99be0
+        #d99bc2,
+        #a995d9
     );
 
-    box-shadow:
-    0 10px 25px rgba(120,80,130,.23);
+    color:white;
 
-    transition:.35s;
+    font-family:
+    "Quicksand",
+    sans-serif;
+
+    font-weight:700;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 25px
+    rgba(140,100,160,.25);
+
+    transition:.3s;
 
 }
 
 .boton:hover{
 
-    transform:translateY(-4px) scale(1.03);
+    transform:
+    translateY(-3px)
+    scale(1.03);
 
 }
 
 .boton:active{
 
-    transform:scale(.93);
+    transform:
+    scale(.94);
 
 }
 
 .advertencia{
 
-    margin-top:25px;
+    font-family:
+    "Caveat",
+    cursive;
 
-    font-family:"Caveat",cursive;
-
-    font-size:19px;
+    font-size:20px;
 
     opacity:.7;
+
+    margin-top:25px;
 
 }
 
 
-/* ==================================================
+/* =========================================================
    UNIVERSO
-================================================== */
+========================================================= */
 
 #universo{
 
     display:none;
 
-    opacity:0;
-
-    transition:opacity 1.5s ease;
-
     position:relative;
 
-    z-index:3;
+    z-index:2;
 
 }
 
-
-/* ==================================================
-   SEGMENTOS
-================================================== */
-
-.segmento{
+.seccion{
 
     min-height:100vh;
 
-    padding:70px 20px;
+    padding:
+    70px 18px;
 
-    display:none;
+    display:flex;
 
     align-items:center;
 
     justify-content:center;
 
-    animation:segmentoEntrada .8s ease;
+}
+
+.contenido{
+
+    width:100%;
+
+    max-width:850px;
+
+    padding:
+    35px 22px;
+
+    border-radius:35px;
+
+    background:
+    rgba(255,255,255,.73);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+    0 20px 60px
+    rgba(90,70,100,.16);
+
+}
+
+.titulo{
+
+    text-align:center;
+
+    font-family:
+    "DM Serif Display",
+    serif;
+
+    color:#a26996;
+
+    font-size:
+    clamp(30px,7vw,42px);
+
+    margin-bottom:25px;
+
+}
+
+.textoBonito{
+
+    font-family:
+    "Quicksand",
+    sans-serif;
+
+    text-align:center;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+}
+
+
+/* =========================================================
+   SEGMENTOS INTERACTIVOS
+========================================================= */
+
+.segmento{
+
+    display:none;
+
+    animation:
+    aparecerSegmento .8s ease;
 
 }
 
 .segmento.activo{
 
-    display:flex;
+    display:block;
 
 }
 
-@keyframes segmentoEntrada{
+@keyframes aparecerSegmento{
 
     from{
 
         opacity:0;
 
         transform:
-        translateY(30px)
+        translateY(25px)
         scale(.97);
 
     }
@@ -404,303 +445,123 @@ body{
 
 }
 
-.contenido{
-
-    width:100%;
-
-    max-width:850px;
-
-    padding:38px 25px;
-
-    border-radius:40px;
-
-    background:rgba(255,255,255,.73);
-
-    backdrop-filter:blur(15px);
-
-    box-shadow:
-    0 25px 60px rgba(90,70,110,.14);
-
-}
-
-
-/* ==================================================
-   TÍTULOS
-================================================== */
-
-.titulo{
-
-    text-align:center;
-
-    font-family:"Playfair Display",serif;
-
-    font-size:32px;
-
-    color:#9d6790;
-
-    margin-bottom:18px;
-
-}
-
-.subtexto{
-
-    text-align:center;
-
-    font-family:"DM Sans",sans-serif;
-
-    line-height:1.7;
-
-    margin-bottom:25px;
-
-}
-
-
-/* ==================================================
-   BOTÓN CONTINUAR
-================================================== */
-
-.continuar{
-
-    display:block;
-
-    margin:30px auto 0;
-
-    border:none;
-
-    cursor:pointer;
-
-    padding:15px 24px;
-
-    border-radius:50px;
-
-    background:#f0c2d9;
-
-    color:#754f6e;
-
-    font-family:"DM Sans",sans-serif;
-
-    font-weight:600;
-
-    box-shadow:
-    0 8px 20px rgba(120,70,100,.12);
-
-    transition:.35s;
-
-}
-
-.continuar:hover{
-
-    transform:translateY(-3px);
-
-    background:#e6afd0;
-
-}
-
-.continuar:active{
-
-    transform:scale(.94);
-
-}
-
-
-/* ==================================================
-   HISTORIA EN CÍRCULOS
-================================================== */
-
-.circulo-historia{
-
-    width:245px;
-
-    height:245px;
-
-    margin:25px auto;
-
-    border-radius:50%;
-
-    padding:28px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    background:
-    linear-gradient(
-        135deg,
-        #ffe3ef,
-        #e5ddff
-    );
-
-    box-shadow:
-    0 15px 35px rgba(100,70,110,.14);
-
-    animation:flotarSuave 4s ease-in-out infinite;
-
-}
-
-@keyframes flotarSuave{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-8px);
-    }
-
-}
-
-.circulo-historia h3{
-
-    font-family:"Dancing Script",cursive;
-
-    font-size:29px;
-
-    color:#a46691;
-
-    margin-bottom:10px;
-
-}
-
-.circulo-historia p{
-
-    font-family:"DM Sans",sans-serif;
-
-    font-size:14px;
-
-    line-height:1.6;
-
-}
-
-.contador-historia{
-
-    text-align:center;
-
-    font-family:"DM Sans",sans-serif;
-
-    font-size:14px;
-
-    opacity:.7;
-
-}
-
-.puntos{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:7px;
-
-    margin-top:20px;
-
-}
-
-.punto{
-
-    width:8px;
-
-    height:8px;
-
-    border-radius:50%;
-
-    background:#d7bdd2;
-
-}
-
-.punto.activo{
-
-    background:#a46791;
-
-    transform:scale(1.4);
-
-}
-
-
-/* ==================================================
-   ENAMORAMIENTO
-================================================== */
-
-.corazon-grande{
-
-    width:150px;
-
-    height:150px;
-
-    margin:20px auto;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:70px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #ffd9e9,
-        #ddd8ff
-    );
-
-    animation:latido 2s infinite;
-
-}
-
-.texto-revelado{
-
-    min-height:110px;
+.bloqueHistoria{
 
     padding:25px;
 
-    border-radius:27px;
+    border-radius:28px;
 
-    background:#fff8fc;
+    background:
+    rgba(255,255,255,.7);
+
+    margin-bottom:20px;
+
+    box-shadow:
+    0 8px 25px
+    rgba(100,80,110,.08);
+
+}
+
+.bloqueHistoria h3{
+
+    font-family:
+    "Caveat",
+    cursive;
+
+    font-size:30px;
+
+    color:#7d83ba;
+
+    margin-top:0;
+
+}
+
+.bloqueHistoria p{
+
+    font-family:
+    "Quicksand",
+    sans-serif;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+}
+
+.pista{
 
     text-align:center;
 
-    font-family:"Caveat",cursive;
+    font-family:
+    "Caveat",
+    cursive;
 
-    font-size:25px;
+    font-size:23px;
 
-    line-height:1.5;
+    color:#a36c96;
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    animation:aparecerTexto .6s ease;
-
-}
-
-@keyframes aparecerTexto{
-
-    from{
-        opacity:0;
-        transform:scale(.95);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
+    margin:25px 0;
 
 }
 
 
-/* ==================================================
+/* =========================================================
+   BOTÓN PULSA AQUÍ
+========================================================= */
+
+.pulsa{
+
+    display:block;
+
+    margin:
+    25px auto 5px;
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:
+    14px 25px;
+
+    background:
+    rgba(255,255,255,.9);
+
+    color:#88648d;
+
+    font-family:
+    "Quicksand",
+    sans-serif;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 8px 20px
+    rgba(120,90,130,.15);
+
+    transition:.3s;
+
+}
+
+.pulsa:hover{
+
+    transform:
+    scale(1.06);
+
+}
+
+.pulsa:active{
+
+    transform:
+    scale(.92);
+
+}
+
+
+/* =========================================================
    COSAS QUE AMO
-================================================== */
+========================================================= */
 
 .razones{
 
@@ -715,195 +576,14 @@ body{
 
 .razon{
 
-    border:none;
+    min-height:130px;
 
-    cursor:pointer;
-
-    padding:24px 12px;
-
-    border-radius:27px;
-
-    background:
-    rgba(255,255,255,.75);
-
-    font-family:"DM Sans",sans-serif;
-
-    color:#604c67;
-
-    transition:.35s;
-
-    box-shadow:
-    0 7px 18px rgba(90,60,100,.08);
-
-}
-
-.razon:hover{
-
-    transform:
-    translateY(-6px)
-    rotate(-1deg);
-
-}
-
-.razon span{
-
-    display:block;
-
-    font-size:37px;
-
-    margin-bottom:9px;
-
-}
-
-.razon-activa{
-
-    animation:emojiSorpresa .7s ease;
-
-}
-
-@keyframes emojiSorpresa{
-
-    0%{
-        transform:scale(1);
-    }
-
-    40%{
-        transform:
-        scale(1.3)
-        rotate(-8deg);
-    }
-
-    70%{
-        transform:
-        scale(.9)
-        rotate(8deg);
-    }
-
-    100%{
-        transform:scale(1);
-    }
-
-}
-
-.amor-mensaje{
-
-    min-height:85px;
-
-    margin-top:25px;
-
-    padding:20px;
+    padding:20px 10px;
 
     border-radius:25px;
 
-    background:#eee5ff;
-
-    text-align:center;
-
-    font-family:"Caveat",cursive;
-
-    font-size:24px;
-
-    line-height:1.5;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-}
-
-
-/* ==================================================
-   RECUERDO
-================================================== */
-
-.recuerdo-caja{
-
-    padding:30px;
-
-    border-radius:30px;
-
     background:
-    linear-gradient(
-        135deg,
-        #fff3f8,
-        #f1ecff
-    );
-
-    text-align:center;
-
-}
-
-.recuerdo-caja h3{
-
-    font-family:"Dancing Script",cursive;
-
-    font-size:31px;
-
-    color:#9c6590;
-
-    margin-bottom:20px;
-
-}
-
-.recuerdo-caja p{
-
-    font-family:"DM Sans",sans-serif;
-
-    line-height:1.8;
-
-    margin-bottom:16px;
-
-}
-
-.frase-vida{
-
-    margin-top:25px;
-
-    text-align:center;
-
-    font-family:"Dancing Script",cursive;
-
-    font-size:28px;
-
-    color:#9a638d;
-
-}
-
-
-/* ==================================================
-   ÁLBUM
-================================================== */
-
-.album-intro{
-
-    text-align:center;
-
-    font-family:"Caveat",cursive;
-
-    font-size:25px;
-
-    margin-bottom:25px;
-
-}
-
-.album-portada{
-
-    max-width:300px;
-
-    height:410px;
-
-    margin:30px auto;
-
-    border-radius:15px 25px 25px 15px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #d9b4ce,
-        #b9b5df
-    );
+    rgba(255,255,255,.72);
 
     display:flex;
 
@@ -913,378 +593,521 @@ body{
 
     justify-content:center;
 
-    color:white;
-
     text-align:center;
 
-    box-shadow:
-    10px 15px 35px rgba(70,50,80,.25);
+    font-family:
+    "Quicksand",
+    sans-serif;
 
     cursor:pointer;
 
-    transition:.6s;
-
-    position:relative;
-
-    overflow:hidden;
+    transition:.35s;
 
 }
 
-.album-portada:hover{
+.razon:hover{
 
     transform:
-    perspective(700px)
-    rotateY(-7deg)
-    scale(1.02);
+    translateY(-7px)
+    rotate(-1deg);
 
 }
 
-.album-portada::before{
+.razon span{
 
-    content:"";
-
-    position:absolute;
-
-    left:18px;
-
-    top:0;
-
-    bottom:0;
-
-    width:5px;
-
-    background:rgba(255,255,255,.35);
-
-}
-
-.album-portada .libro-titulo{
-
-    font-family:"Playfair Display",serif;
-
-    font-size:31px;
-
-}
-
-.album-portada .libro-subtitulo{
-
-    margin-top:12px;
-
-    font-family:"Dancing Script",cursive;
-
-    font-size:25px;
-
-}
-
-.album-portada .abrir{
-
-    margin-top:45px;
-
-    padding:10px 18px;
-
-    border-radius:30px;
-
-    background:rgba(255,255,255,.2);
-
-    font-family:"DM Sans",sans-serif;
-
-}
-
-
-/* ==================================================
-   LIBRO ABIERTO
-================================================== */
-
-.libro{
-
-    display:none;
-
-}
-
-.libro.abierto{
+    font-size:40px;
 
     display:block;
 
-    animation:aparecerTexto .8s ease;
+    margin-bottom:10px;
 
 }
 
-.pagina{
+.razon.seleccionada span{
 
-    min-height:420px;
-
-    padding:25px;
-
-    border-radius:15px;
-
-    background:#fffaf0;
-
-    box-shadow:
-    0 15px 35px rgba(80,60,60,.15);
-
-    position:relative;
-
-    overflow:hidden;
-
-    cursor:pointer;
+    animation:
+    emojiSalta .8s ease;
 
 }
 
-.pagina::after{
+@keyframes emojiSalta{
 
-    content:"";
+    0%{
+        transform:scale(1);
+    }
 
-    position:absolute;
+    40%{
+        transform:
+        scale(1.6)
+        rotate(15deg);
+    }
 
-    top:0;
+    70%{
+        transform:
+        scale(.85)
+        rotate(-10deg);
+    }
 
-    bottom:0;
-
-    right:0;
-
-    width:7px;
-
-    background:
-    linear-gradient(
-        to bottom,
-        #e7d7ca,
-        #fffaf0
-    );
-
-}
-
-.pagina-numero{
-
-    text-align:right;
-
-    font-family:"Caveat",cursive;
-
-    opacity:.5;
+    100%{
+        transform:scale(1);
+    }
 
 }
 
-.foto-libro{
+.mensajeRazon{
 
-    width:100%;
-
-    height:270px;
-
-    border-radius:15px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #ffd8e8,
-        #ddd7ff
-    );
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    font-family:"Caveat",cursive;
-
-    font-size:25px;
-
-    color:#80617e;
-
-    margin:25px 0;
-
-}
-
-.texto-pagina{
-
-    text-align:center;
-
-    font-family:"Dancing Script",cursive;
-
-    font-size:26px;
-
-    line-height:1.5;
-
-}
-
-.pagina-boton{
-
-    display:block;
-
-    margin:25px auto 0;
-
-    border:none;
-
-    background:#ead9ff;
-
-    color:#765d83;
-
-    padding:12px 18px;
-
-    border-radius:30px;
-
-    font-family:"DM Sans",sans-serif;
-
-    cursor:pointer;
-
-}
-
-.libro-final{
-
-    text-align:center;
-
-    font-family:"Dancing Script",cursive;
-
-    font-size:29px;
-
-    color:#98638b;
+    min-height:45px;
 
     margin-top:20px;
 
-}
+    text-align:center;
 
+    font-family:
+    "Caveat",
+    cursive;
 
-/* ==================================================
-   CARTA
-================================================== */
+    font-size:24px;
 
-.carta-wrapper{
-
-    background:#fffaf0;
-
-    padding:35px 25px;
-
-    border-radius:8px;
-
-    box-shadow:
-    0 15px 40px rgba(100,70,50,.13);
-
-    position:relative;
+    color:#a26c98;
 
 }
 
-.carta-cabecera{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    padding-bottom:20px;
-
-    border-bottom:1px solid #eaded2;
-
-}
-
-.carta-cabecera h3{
-
-    font-family:"Playfair Display",serif;
-
-    font-size:23px;
-
-    color:#76566e;
-
-}
-
-.carta-cabecera p{
-
-    font-family:"Caveat",cursive;
-
-    font-size:20px;
-
-    margin-top:5px;
-
-}
-
-.gatito{
-
-    width:75px;
-
-    height:75px;
-
-    border-radius:50%;
-
-    background:#ffe1eb;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:42px;
-
-    animation:latido 2.5s infinite;
-
-}
-
-.carta-texto{
+.frase{
 
     margin-top:25px;
 
-    font-family:"Caveat",cursive;
+    padding:23px;
 
-    font-size:24px;
+    border-radius:25px;
+
+    background:#eee5ff;
+
+    text-align:center;
+
+    font-family:
+    "Caveat",
+    cursive;
+
+    font-size:25px;
+
+    color:#795b82;
+
+}
+
+
+/* =========================================================
+   RECUERDO
+========================================================= */
+
+.recuerdo{
+
+    text-align:center;
+
+    font-family:
+    "Quicksand",
+    sans-serif;
+
+    line-height:1.9;
+
+    font-size:18px;
+
+}
+
+.recuerdoGrande{
+
+    font-family:
+    "Caveat",
+    cursive;
+
+    font-size:35px;
+
+    color:#a86b99;
+
+}
+
+
+/* =========================================================
+   ÁLBUM
+========================================================= */
+
+.albumIntro{
+
+    text-align:center;
+
+    font-family:
+    "Quicksand",
+    sans-serif;
 
     line-height:1.7;
 
 }
 
-.linea-carta{
+.album{
 
-    min-height:38px;
+    width:100%;
 
-    margin-bottom:8px;
+    max-width:500px;
 
-}
+    height:500px;
 
-.cursor{
+    margin:
+    30px auto;
 
-    display:inline-block;
+    position:relative;
 
-    width:2px;
-
-    height:23px;
-
-    background:#a56791;
-
-    animation:parpadeo .8s infinite;
+    perspective:1500px;
 
 }
 
-@keyframes parpadeo{
+.portadaAlbum{
 
-    50%{
+    position:absolute;
+
+    inset:0;
+
+    border-radius:25px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f6b8d5,
+        #bdb4ed
+    );
+
+    box-shadow:
+    0 20px 40px
+    rgba(90,70,110,.25);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    z-index:20;
+
+    transition:
+    transform 1.2s ease;
+
+    transform-origin:left center;
+
+}
+
+.portadaAlbum.abierto{
+
+    transform:
+    rotateY(-145deg);
+
+}
+
+.portadaAlbum h3{
+
+    font-family:
+    "DM Serif Display",
+    serif;
+
+    font-size:40px;
+
+    color:white;
+
+    margin:10px;
+
+}
+
+.portadaAlbum p{
+
+    font-family:
+    "Caveat",
+    cursive;
+
+    color:white;
+
+    font-size:25px;
+
+}
+
+.albumLibro{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:25px;
+
+    background:#fffaf3;
+
+    overflow:hidden;
+
+}
+
+.pagina{
+
+    position:absolute;
+
+    inset:0;
+
+    padding:20px;
+
+    display:none;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    animation:
+    paginaEntra .6s ease;
+
+    cursor:pointer;
+
+}
+
+.pagina.activa{
+
+    display:flex;
+
+}
+
+@keyframes paginaEntra{
+
+    from{
+
         opacity:0;
+
+        transform:
+        rotateY(-20deg)
+        translateX(25px);
+
     }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        rotateY(0)
+        translateX(0);
+
+    }
+
+}
+
+.pagina img{
+
+    width:100%;
+
+    height:350px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 12px 30px
+    rgba(80,60,90,.2);
+
+}
+
+.pagina p{
+
+    font-family:
+    "Caveat",
+    cursive;
+
+    font-size:24px;
+
+    color:#88648d;
+
+    margin:12px 0 0;
+
+}
+
+.indicador{
+
+    font-family:
+    "Quicksand",
+    sans-serif;
+
+    font-size:13px;
+
+    opacity:.65;
+
+    margin-top:5px;
+
+}
+
+.controlesAlbum{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+.controlesAlbum button{
+
+    border:none;
+
+    border-radius:50%;
+
+    width:48px;
+
+    height:48px;
+
+    background:
+    rgba(255,255,255,.9);
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    box-shadow:
+    0 5px 15px
+    rgba(80,60,90,.12);
+
+}
+
+
+/* =========================================================
+   CARTA
+========================================================= */
+
+.carta{
+
+    position:relative;
+
+    background:
+    #fffaf1;
+
+    padding:
+    30px 23px;
+
+    border-radius:8px;
+
+    box-shadow:
+    0 15px 35px
+    rgba(90,60,80,.18);
+
+    font-family:
+    "Caveat",
+    cursive;
+
+    font-size:24px;
+
+    line-height:1.7;
+
+    overflow:hidden;
+
+}
+
+.carta::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    repeating-linear-gradient(
+        transparent,
+        transparent 39px,
+        rgba(200,170,190,.18) 40px
+    );
+
+    pointer-events:none;
+
+}
+
+.cartaContenido{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.cartaEncabezado{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.para{
+
+    font-size:27px;
+
+    color:#a46b94;
+
+}
+
+.hello{
+
+    font-size:48px;
+
+    animation:
+    flotar .9s ease-in-out infinite alternate;
+
+}
+
+@keyframes flotar{
+
+    from{
+        transform:rotate(-5deg) translateY(0);
+    }
+
+    to{
+        transform:rotate(5deg) translateY(-7px);
+    }
+
+}
+
+.lineaCarta{
+
+    margin:
+    20px 0;
+
+}
+
+.typing{
+
+    min-height:1.5em;
 
 }
 
 .postdata{
 
-    margin-top:35px;
+    margin-top:30px;
 
-    padding-top:20px;
+    font-size:22px;
 
-    border-top:1px dashed #d9c9bd;
+    text-align:right;
 
-    font-family:"Dancing Script",cursive;
-
-    font-size:27px;
-
-    text-align:center;
-
-    color:#9a638d;
+    color:#a16b95;
 
 }
 
 
-/* ==================================================
-   FINAL
-================================================== */
+/* =========================================================
+   ÚLTIMO FRAGMENTO
+========================================================= */
 
 .final{
 
@@ -1292,31 +1115,32 @@ body{
 
 }
 
-.final-titulo{
+.final h2{
 
-    font-family:"Playfair Display",serif;
+    font-family:
+    "DM Serif Display",
+    serif;
 
-    color:#a06590;
+    font-size:
+    clamp(35px,8vw,55px);
 
-    font-size:35px;
-
-    margin-bottom:25px;
-
-}
-
-.final-texto{
-
-    font-family:"DM Sans",sans-serif;
-
-    line-height:1.85;
-
-    font-size:17px;
-
-    margin-bottom:15px;
+    color:#a56c98;
 
 }
 
-.gran-final{
+.final p{
+
+    font-family:
+    "Quicksand",
+    sans-serif;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+.granFinal{
 
     margin-top:30px;
 
@@ -1327,21 +1151,38 @@ body{
     background:
     linear-gradient(
         135deg,
-        #ffe0ed,
-        #e7ddff
+        #ffd9e8,
+        #e7ddff,
+        #fff0bd
     );
 
-    font-family:"Dancing Script",cursive;
+    font-family:
+    "Caveat",
+    cursive;
 
-    font-size:34px;
+    font-size:
+    clamp(32px,8vw,48px);
 
-    color:#965e89;
+    color:#91658d;
 
-    animation:latido 3s infinite;
+    animation:
+    finalLatido 2s infinite;
 
 }
 
-.sorpresa-final{
+@keyframes finalLatido{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.04);
+    }
+
+}
+
+.sorpresa{
 
     display:none;
 
@@ -1349,128 +1190,94 @@ body{
 
     padding:25px;
 
-    border-radius:28px;
+    border-radius:25px;
 
-    background:#fff7fc;
+    background:#fff;
 
-    font-family:"Caveat",cursive;
+    font-family:
+    "Caveat",
+    cursive;
 
     font-size:27px;
 
-    line-height:1.5;
-
-    animation:entradaPortada .8s ease;
+    animation:
+    aparecer .8s ease;
 
 }
 
 
-/* ==================================================
-   CORAZONES FINALES
-================================================== */
+/* =========================================================
+   MÚSICA
+========================================================= */
 
-.corazon-final{
+.reproductor{
 
     position:fixed;
 
-    bottom:-50px;
+    right:15px;
 
-    pointer-events:none;
+    bottom:15px;
 
     z-index:100;
 
-    animation:subidaFinal 5s linear forwards;
+    display:none;
 
 }
 
-@keyframes subidaFinal{
+.musicButton{
 
-    0%{
-        transform:
-        translateY(0)
-        scale(.5)
-        rotate(0deg);
+    width:55px;
 
-        opacity:0;
-    }
-
-    15%{
-        opacity:1;
-    }
-
-    100%{
-
-        transform:
-        translateY(-110vh)
-        scale(1.4)
-        rotate(360deg);
-
-        opacity:0;
-    }
-
-}
-
-
-/* ==================================================
-   BOTÓN ARRIBA
-================================================== */
-
-.arriba{
-
-    position:fixed;
-
-    right:18px;
-
-    bottom:18px;
-
-    width:47px;
-
-    height:47px;
+    height:55px;
 
     border:none;
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.8);
+    background:
+    linear-gradient(
+        135deg,
+        #d99bc2,
+        #9f94d4
+    );
 
-    color:#90627f;
+    color:white;
 
-    font-size:20px;
-
-    z-index:50;
+    font-size:23px;
 
     cursor:pointer;
+
+    box-shadow:
+    0 8px 25px
+    rgba(90,70,110,.25);
+
+}
+
+.musicButton.reproduciendo{
+
+    animation:
+    girarMusica 2s linear infinite;
+
+}
+
+@keyframes girarMusica{
+
+    from{
+        transform:rotate(0);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
 
 }
 
 
-/* ==================================================
-   MÓVIL
-================================================== */
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
-@media(max-width:500px){
-
-    .portada h1{
-        font-size:38px;
-    }
-
-    .subtitulo{
-        font-size:27px;
-    }
-
-    .titulo{
-        font-size:28px;
-    }
-
-    .contenido{
-        padding:30px 18px;
-    }
-
-    .circulo-historia{
-
-        width:225px;
-        height:225px;
-
-    }
+@media(max-width:600px){
 
     .razones{
 
@@ -1479,13 +1286,19 @@ body{
 
     }
 
-    .album-portada{
+    .album{
 
-        height:390px;
+        height:430px;
 
     }
 
-    .carta-texto{
+    .pagina img{
+
+        height:285px;
+
+    }
+
+    .carta{
 
         font-size:22px;
 
@@ -1493,17 +1306,24 @@ body{
 
 }
 
+@media(max-width:380px){
 
-/* ==================================================
-   REDUCCIÓN DE MOVIMIENTO
-================================================== */
+    .razones{
 
-@media(prefers-reduced-motion:reduce){
+        grid-template-columns:1fr;
 
-    *{
-        animation-duration:.01ms!important;
-        animation-iteration-count:1!important;
-        transition-duration:.01ms!important;
+    }
+
+    .album{
+
+        height:390px;
+
+    }
+
+    .pagina img{
+
+        height:250px;
+
     }
 
 }
@@ -1516,866 +1336,881 @@ body{
 <body>
 
 
-<!-- ==================================================
-     DECORACIONES
-================================================== -->
+<!-- ======================================================
+     AUDIO
+====================================================== -->
 
-<div class="decoracion">
+<audio
+id="musica"
+loop
+preload="auto">
 
-    <span class="flota">♡</span>
-    <span class="flota">✦</span>
-    <span class="flota">💗</span>
-    <span class="flota">✧</span>
-    <span class="flota">🌸</span>
-    <span class="flota">♡</span>
-    <span class="flota">🦋</span>
-    <span class="flota">✨</span>
+<source
+src="Elvis Presley - Can't Help Falling in Love Lyrics.mp3"
+type="audio/mpeg">
+
+</audio>
+
+
+<!-- ======================================================
+     REPRODUCTOR
+====================================================== -->
+
+<div
+class="reproductor"
+id="reproductor">
+
+<button
+class="musicButton"
+id="musicButton">
+
+🎵
+
+</button>
 
 </div>
 
 
-<!-- ==================================================
+<!-- ======================================================
      PORTADA
-================================================== -->
+====================================================== -->
 
 <section id="inicio">
 
 <div class="portada">
 
-    <div class="flor-portada">
-        🌷
-    </div>
+<div class="decoracion">
+🌷 💗 🌷
+</div>
 
-    <h1>
-        Para mi Darling
-    </h1>
+<h1>
+Para mi Darling
+</h1>
 
-    <div class="subtitulo">
-        Mi ninisita linda 💗
-    </div>
+<div class="ninisita">
+Mi ninisita linda 💗
+</div>
 
-    <p class="intro">
-        Hay personas que llegan a nuestra vida sin avisar...
-        y terminan convirtiéndose en nuestro lugar favorito.
-    </p>
+<p class="portadaTexto">
 
-    <p
-    class="intro"
-    style="margin-top:15px;">
-        Esta pequeña locura es para ti.
-    </p>
+Hay personas que llegan a nuestra vida
+sin avisar...
 
-    <button
-    class="boton"
-    onclick="entrar()">
+y terminan convirtiéndose
+en nuestro lugar favorito.
 
-        Entrar a nuestro universo ✨
+</p>
 
-    </button>
+<p class="portadaTexto">
 
-    <p class="advertencia">
+Esta pequeña locura es para ti.
 
-        Advertencia:
-        este sitio fue hecho por un loquito enamorado.
+</p>
 
-    </p>
+<button
+class="boton"
+id="entrarBtn">
+
+Entrar a nuestro universo ✨
+
+</button>
+
+<p class="advertencia">
+
+Advertencia:
+este sitio fue hecho
+por un loquito enamorado.
+
+</p>
 
 </div>
 
 </section>
 
 
-
-<!-- ==================================================
+<!-- ======================================================
      UNIVERSO
-================================================== -->
+====================================================== -->
 
 <main id="universo">
 
 
-<!-- ==================================================
-     FRAGMENTO 1
-================================================== -->
+<!-- ======================================================
+     HISTORIA
+====================================================== -->
 
-<section
-class="segmento activo"
-id="segmento1">
+<section class="seccion">
 
 <div class="contenido">
 
 <h2 class="titulo">
-    Antes de todo... 🌷
+
+Y pensar que todo empezó tan random... 🌸
+
 </h2>
 
-<div class="circulo-historia">
+
+<div class="segmento activo">
+
+<div class="bloqueHistoria">
 
 <h3>
-    El comienzo
+🌱 El comienzo
 </h3>
 
 <p>
-A veces las historias más bonitas empiezan de la manera más inesperada.
-</p>
 
-</div>
+Te conocí gracias a un team.
+Al principio ni siquiera tuvimos
+mucha interacción.
 
-<p class="contador-historia">
-    1 de 5
-</p>
-
-<div class="puntos">
-
-<span class="punto activo"></span>
-<span class="punto"></span>
-<span class="punto"></span>
-<span class="punto"></span>
-<span class="punto"></span>
-
-</div>
-
-<button
-class="continuar"
-onclick="siguienteSegmento(2)">
-
-    Pulsa aquí para continuar ✨
-
-</button>
-
-</div>
-
-</section>
-
-
-
-<!-- ==================================================
-     FRAGMENTO 2
-================================================== -->
-
-<section
-class="segmento"
-id="segmento2">
-
-<div class="contenido">
-
-<h2 class="titulo">
-    Y todo empezó tan random... 🌸
-</h2>
-
-<div class="circulo-historia">
-
-<h3>
-    El team
-</h3>
-
-<p>
-Te conocí porque me invitaron a tu team.
-Al principio ni siquiera tuvimos mucha interacción.
-</p>
-
-</div>
-
-<p class="contador-historia">
-    2 de 5
-</p>
-
-<div class="puntos">
-
-<span class="punto"></span>
-<span class="punto activo"></span>
-<span class="punto"></span>
-<span class="punto"></span>
-<span class="punto"></span>
-
-</div>
-
-<button
-class="continuar"
-onclick="siguienteSegmento(3)">
-
-    Pulsa aquí para continuar 💗
-
-</button>
-
-</div>
-
-</section>
-
-
-
-<!-- ==================================================
-     FRAGMENTO 3
-================================================== -->
-
-<section
-class="segmento"
-id="segmento3">
-
-<div class="contenido">
-
-<h2 class="titulo">
-    Y entonces... 💬
-</h2>
-
-<div class="circulo-historia">
-
-<h3>
-    Ese estado
-</h3>
-
-<p>
-Terminamos hablando de la manera más random posible:
+Pero después terminamos hablando
+de la manera más random posible:
 respondiste un estado de WhatsApp.
+
 </p>
-
-</div>
-
-<p class="contador-historia">
-    3 de 5
-</p>
-
-<div class="puntos">
-
-<span class="punto"></span>
-<span class="punto"></span>
-<span class="punto activo"></span>
-<span class="punto"></span>
-<span class="punto"></span>
 
 </div>
 
 <button
-class="continuar"
-onclick="siguienteSegmento(4)">
+class="pulsa"
+onclick="siguienteSegmento(this)">
 
-    Pulsa aquí para continuar 🦋
+Pulsa aquí 🌷
 
 </button>
 
 </div>
 
-</section>
 
+<div class="segmento">
 
-
-<!-- ==================================================
-     FRAGMENTO 4
-================================================== -->
-
-<section
-class="segmento"
-id="segmento4">
-
-<div class="contenido">
-
-<h2 class="titulo">
-    Y ya no dejamos de hablar... 🥹
-</h2>
-
-<div class="circulo-historia">
+<div class="bloqueHistoria">
 
 <h3>
-    Todos los días
+💬 Y empezamos a hablar
 </h3>
 
 <p>
-Nos escribíamos todos los días.
-Nos reíamos, bromeábamos y decíamos cualquier tontería.
+
+Nos escribíamos todos los días
+y poco a poco nos hicimos amigos.
+
+Me encantaba hablar contigo porque
+siempre terminábamos riéndonos,
+haciendo bromas y diciendo cualquier
+tontería.
+
+Nuestro humor se parecía tanto
+que conectar contigo fue demasiado fácil.
+
 </p>
-
-</div>
-
-<p class="contador-historia">
-    4 de 5
-</p>
-
-<div class="puntos">
-
-<span class="punto"></span>
-<span class="punto"></span>
-<span class="punto"></span>
-<span class="punto activo"></span>
-<span class="punto"></span>
 
 </div>
 
 <button
-class="continuar"
-onclick="siguienteSegmento(5)">
+class="pulsa"
+onclick="siguienteSegmento(this)">
 
-    Pulsa aquí para continuar 🌸
+Pulsa aquí 💗
 
 </button>
 
 </div>
 
-</section>
 
+<div class="segmento">
 
-
-<!-- ==================================================
-     FRAGMENTO 5
-================================================== -->
-
-<section
-class="segmento"
-id="segmento5">
-
-<div class="contenido">
-
-<h2 class="titulo">
-    Y sin darme cuenta... ❤️
-</h2>
-
-<div class="circulo-historia">
+<div class="bloqueHistoria">
 
 <h3>
-    Me enamoré
+💗 Algo empezó a cambiar
 </h3>
 
 <p>
-Me gustaba tu forma de ser, tu manera de hacerme reír
-y lo mucho que disfrutaba estar contigo.
+
+Empecé a esperar tus mensajes.
+
+Sonreía cuando veía que eras tú.
+
+Te recordaba en canciones,
+en cosas que veía,
+en momentos del día.
+
+Y mi corazón...
+
+bueno, mi corazón empezó
+a hacer de las suyas.
+
 </p>
 
 </div>
 
-<p class="contador-historia">
-    5 de 5
+<button
+class="pulsa"
+onclick="siguienteSegmento(this)">
+
+Pulsa aquí 🥹
+
+</button>
+
+</div>
+
+
+<div class="segmento">
+
+<div class="bloqueHistoria">
+
+<h3>
+❤️ Y aquí estamos
+</h3>
+
+<p>
+
+Esa persona con la que empecé
+hablando de una manera completamente
+random terminó convirtiéndose
+en la mujer de mis sueños.
+
+Y todavía me parece increíble
+que seas tú.
+
 </p>
 
-<div class="puntos">
+</div>
 
-<span class="punto"></span>
-<span class="punto"></span>
-<span class="punto"></span>
-<span class="punto"></span>
-<span class="punto activo"></span>
+<div class="frase">
+
+El amor de esta y otras vidas eres tú. ♡
 
 </div>
 
-<button
-class="continuar"
-onclick="siguienteSegmento(6)">
+</div>
 
-    Hay algo más que quiero contarte... 💗
-
-</button>
 
 </div>
 
 </section>
 
 
-
-<!-- ==================================================
-     ENAMORAMIENTO 1
-================================================== -->
-
-<section
-class="segmento"
-id="segmento6">
-
-<div class="contenido">
-
-<h2 class="titulo">
-    Creo que aquí empezó el problema... 👀
-</h2>
-
-<div class="corazon-grande">
-    💗
-</div>
-
-<div
-class="texto-revelado"
-id="enamoramientoTexto">
-
-    Empecé a esperar tus mensajes.
-
-</div>
-
-<button
-class="continuar"
-onclick="revelarEnamoramiento(1)">
-
-    Pulsa aquí 💌
-
-</button>
-
-</div>
-
-</section>
-
-
-
-<!-- ==================================================
-     ENAMORAMIENTO 2
-================================================== -->
-
-<section
-class="segmento"
-id="segmento7">
-
-<div class="contenido">
-
-<h2 class="titulo">
-    Después pasó esto... 🥹
-</h2>
-
-<div
-class="texto-revelado"
-id="enamoramientoTexto2">
-
-    Sonreía cuando veía que eras tú.
-
-</div>
-
-<button
-class="continuar"
-onclick="revelarEnamoramiento(2)">
-
-    Pulsa aquí 💗
-
-</button>
-
-</div>
-
-</section>
-
-
-
-<!-- ==================================================
-     ENAMORAMIENTO 3
-================================================== -->
-
-<section
-class="segmento"
-id="segmento8">
-
-<div class="contenido">
-
-<h2 class="titulo">
-    Y luego ya fue imposible... 🌙
-</h2>
-
-<div
-class="texto-revelado"
-id="enamoramientoTexto3">
-
-    Empecé a recordarte en canciones y en cualquier cosa que veía.
-
-</div>
-
-<button
-class="continuar"
-onclick="revelarEnamoramiento(3)">
-
-    Pulsa aquí ✨
-
-</button>
-
-</div>
-
-</section>
-
-
-
-<!-- ==================================================
+<!-- ======================================================
      COSAS QUE AMO
-================================================== -->
+====================================================== -->
 
-<section
-class="segmento"
-id="segmento9">
+<section class="seccion">
 
 <div class="contenido">
 
 <h2 class="titulo">
-    Cosas que amo de ti 💕
+
+Cosas que amo de ti 💕
+
 </h2>
 
-<p class="subtexto">
+<p class="textoBonito">
 
-No las pulses todas de una...
-quiero que descubras cada una. 👀
+Pulsa cada una.
+
+Quiero que descubras
+qué pasa cuando tocas
+cada pedacito de mi corazón.
 
 </p>
+
 
 <div class="razones">
 
-<button
-class="razon"
-onclick="amorDeTi(this,'Tu sonrisa. Esa que puede cambiarme completamente el día. 😊')">
-
-<span>😊</span>
-Tu sonrisa
-
-</button>
-
-
-<button
-class="razon"
-onclick="amorDeTi(this,'Tus mensajes. Me encanta ver tu nombre aparecer en mi pantalla. 💬')">
-
-<span>💬</span>
-Tus mensajes
-
-</button>
-
-
-<button
-class="razon"
-onclick="amorDeTi(this,'Tus bromas. Incluso cuando te ríes de mí cuando me pasa algo. 😂')">
-
-<span>😂</span>
-Tus bromas
-
-</button>
-
-
-<button
-class="razon"
-onclick="amorDeTi(this,'La forma en que me entiendes incluso cuando digo puras tonterías. 🫶')">
-
-<span>🫶</span>
-Cómo me entiendes
-
-</button>
-
-
-<button
-class="razon"
-onclick="amorDeTi(this,'Tu forma de ser. Esa que hizo que me enamorara de ti. 🌷')">
-
-<span>🌷</span>
-Tu forma de ser
-
-</button>
-
-
-<button
-class="razon"
-onclick="amorDeTi(this,'Simplemente tú. Porque no necesito una razón más complicada. 💗')">
-
-<span>💗</span>
-Simplemente tú
-
-</button>
-
-</div>
 
 <div
-class="amor-mensaje"
-id="amorMensaje">
+class="razon"
+onclick="mostrarRazon(this,'Tu sonrisa puede arreglarme un día entero. 😊')">
 
-Toca una de las cosas. 💌
+<span>😊</span>
+
+Tu sonrisa
 
 </div>
 
-<button
-class="continuar"
-onclick="siguienteSegmento(10)">
 
-    Pulsa aquí cuando hayas terminado 💗
+<div
+class="razon"
+onclick="mostrarRazon(this,'Tus mensajes son de esas pequeñas cosas que siempre espero con ilusión. 💬')">
+
+<span>💬</span>
+
+Tus mensajes
+
+</div>
+
+
+<div
+class="razon"
+onclick="mostrarRazon(this,'Tus bromas... incluso cuando te burlas de mí. 😂')">
+
+<span>😂</span>
+
+Tus bromas
+
+</div>
+
+
+<div
+class="razon"
+onclick="mostrarRazon(this,'Me encanta que puedas entenderme incluso cuando no sé cómo explicar lo que siento. 🫶')">
+
+<span>🫶</span>
+
+Cómo me entiendes
+
+</div>
+
+
+<div
+class="razon"
+onclick="mostrarRazon(this,'Tu forma de ser fue una de las primeras cosas que me hizo querer quedarme. 🌷')">
+
+<span>🌷</span>
+
+Tu forma de ser
+
+</div>
+
+
+<div
+class="razon"
+onclick="mostrarRazon(this,'Y después de todo... simplemente amo que seas tú. 💗')">
+
+<span>💗</span>
+
+Simplemente tú
+
+</div>
+
+
+</div>
+
+
+<div
+id="mensajeRazon"
+class="mensajeRazon">
+
+</div>
+
+
+<div class="frase">
+
+Me encanta cuando me dices
+“tan bobo”. 😂💗
+
+</div>
+
+
+<button
+class="pulsa"
+onclick="mostrarSiguiente(this)">
+
+Pulsa aquí 🫶
 
 </button>
 
-</div>
 
-</section>
+<div
+class="segmentoContinuacion">
 
-
-
-<!-- ==================================================
-     TAN BOBO
-================================================== -->
-
-<section
-class="segmento"
-id="segmento10">
-
-<div class="contenido">
-
-<h2 class="titulo">
-    Hay una frase que me encanta... 😂
-</h2>
-
-<div class="corazon-grande">
-    🥹
-</div>
-
-<div class="frase-vida">
-
-Me encanta cuando me dices:
-
-<br><br>
-
-<strong>
-“Tan bobo.”
-</strong>
-
-<br><br>
-
-Porque sí...
-
-<br>
-
-soy bastante bobo.
-
-<br>
-
-Pero soy tu bobo. ♡
-
-</div>
-
-<button
-class="continuar"
-onclick="siguienteSegmento(11)">
-
-    Pulsa aquí para seguir 🌸
-
-</button>
-
-</div>
-
-</section>
-
-
-
-<!-- ==================================================
-     RECUERDO
-================================================== -->
-
-<section
-class="segmento"
-id="segmento11">
-
-<div class="contenido">
-
-<h2 class="titulo">
-    Ese momento que todavía recuerdo 🥹
-</h2>
-
-<div class="recuerdo-caja">
+<div class="bloqueHistoria">
 
 <h3>
-    El día que te lo pregunté
+💗 Porque eres tú
 </h3>
 
 <p>
-La vez que te pedí que fueras mi novia,
-todavía recuerdo tu cara.
-</p>
 
-<p>
-Te reías y me preguntabas si era una broma.
-No te lo creías.
-</p>
+Eres la persona que hace que
+mi corazón se acelere sin siquiera
+intentarlo.
 
-<p>
-Y yo solamente podía reírme viendo tu reacción,
-porque verte tan incrédula fue demasiado bonito.
-</p>
+La que consigue que un día normal
+se convierta en uno bonito.
 
-<p>
-Creo que ese momento se quedó guardado en mi cabeza
-para siempre.
+La que me hace querer quedarme.
+
+La que me da una razón para sonreír.
+
 </p>
 
 </div>
 
-<div class="frase-vida">
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     RECUERDO
+====================================================== -->
+
+<section class="seccion">
+
+<div class="contenido">
+
+<h2 class="titulo">
+
+Un recuerdo que nunca voy a olvidar 🥹
+
+</h2>
+
+
+<div class="recuerdo">
+
+<p class="recuerdoGrande">
+
+La vez que te pedí que fueras mi novia.
+
+</p>
+
+<p>
+
+Todavía recuerdo tu cara de incredulidad.
+
+Te reías y me preguntabas
+si era una broma.
+
+Simplemente no te lo creías.
+
+</p>
+
+<p>
+
+Y yo solo podía reírme
+viendo tu reacción.
+
+Creo que pocas veces he disfrutado
+tanto ver a alguien tan confundida.
+
+😂
+
+</p>
+
+<p>
+
+Pero detrás de todas esas risas
+había algo muy serio:
+
+yo realmente quería que fueras tú.
+
+</p>
+
+</div>
+
+
+<div class="frase">
 
 Eres mi amor en esta y las otras vidas. ♡
 
 </div>
 
-<button
-class="continuar"
-onclick="siguienteSegmento(12)">
 
-    Pulsa aquí para continuar 💌
+<button
+class="pulsa"
+onclick="mostrarRecuerdo(this)">
+
+Pulsa aquí 🥹
 
 </button>
 
-</div>
-
-</section>
-
-
-
-<!-- ==================================================
-     ÁLBUM PORTADA
-================================================== -->
-
-<section
-class="segmento"
-id="segmento12">
-
-<div class="contenido">
-
-<h2 class="titulo">
-    Encontré otro rincón... 📖
-</h2>
-
-<p class="album-intro">
-
-Pero este no se lee.
-
-<br>
-
-Este se abre.
-
-</p>
 
 <div
-class="album-portada"
-onclick="abrirAlbum()">
+class="segmentoContinuacion"
+id="recuerdoExtra">
 
-<div class="libro-titulo">
-    Nuestro álbum
-</div>
-
-<div class="libro-subtitulo">
-    10 pequeños recuerdos
-</div>
-
-<div class="abrir">
-    Toca para abrir ♡
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ==================================================
-     ÁLBUM
-================================================== -->
-
-<section
-class="segmento"
-id="segmento13">
-
-<div class="contenido">
-
-<h2 class="titulo">
-    Nuestro álbum 📸
-</h2>
-
-<div
-class="libro"
-id="libro">
-
-<div
-class="pagina"
-onclick="siguientePagina()">
-
-<div class="pagina-numero">
-    Página <span id="numeroPagina">1</span>/10
-</div>
-
-<div
-class="foto-libro"
-id="fotoLibro">
-
-📸
-<br>
-Nuestro primer recuerdo
-
-</div>
-
-<div
-class="texto-pagina"
-id="textoPagina">
-
-Aquí irá uno de nuestros recuerdos. 💗
-
-</div>
-
-<button
-class="pagina-boton"
-onclick="event.stopPropagation(); siguientePagina();">
-
-    Pasar página →
-
-</button>
-
-</div>
-
-</div>
-
-<div
-class="libro-final"
-id="finalAlbum"
-style="display:none;">
-
-Terminamos el álbum... 🥹💗
-
-<br><br>
-
-Pero todavía queda una carta.
-
-</div>
-
-<button
-class="continuar"
-id="botonCarta"
-style="display:none;"
-onclick="siguienteSegmento(14)">
-
-    Pulsa aquí para continuar 💌
-
-</button>
-
-</div>
-
-</section>
-
-
-
-<!-- ==================================================
-     CARTA
-================================================== -->
-
-<section
-class="segmento"
-id="segmento14">
-
-<div class="contenido">
-
-<h2 class="titulo">
-    Una carta para ti 💌
-</h2>
-
-<div class="carta-wrapper">
-
-<div class="carta-cabecera">
-
-<div>
+<div class="bloqueHistoria">
 
 <h3>
-Para Jennie
+❤️ Y volvería a elegirte
 </h3>
 
 <p>
-De Christian
+
+Si pudiera volver a ese momento,
+volvería a preguntártelo.
+
+Y probablemente tú volverías
+a pensar que estoy haciendo una broma.
+
+Tan boba. 😂
+
+Pero sí.
+
+Te elegiría otra vez.
+
 </p>
 
 </div>
 
-<div class="gatito">
-    🎀
 </div>
 
+
 </div>
+
+</section>
+
+
+<!-- ======================================================
+     ÁLBUM
+====================================================== -->
+
+<section class="seccion">
+
+<div class="contenido">
+
+<h2 class="titulo">
+
+Nuestro pequeño álbum 📖💗
+
+</h2>
+
+<p class="albumIntro">
+
+Toca la portada.
+
+Después, cada vez que pulses
+una página, el álbum continuará.
+
+</p>
+
+
+<div class="album">
 
 
 <div
-class="carta-texto"
-id="cartaTexto">
+class="portadaAlbum"
+id="portadaAlbum"
+onclick="abrirAlbum()">
+
+<div style="font-size:55px;">
+🎀 🐱
+</div>
+
+<h3>
+Nuestro álbum
+</h3>
+
+<p>
+Darling & Christian ♡
+</p>
+
+<p style="font-size:18px;">
+Toca para abrir
+</p>
+
+</div>
+
+
+<div class="albumLibro">
+
+
+<div class="pagina activa">
+
+<img
+src="f8dc37b71b4002de4bdba9da44beaa08.jpg"
+alt="Nuestro recuerdo 1">
+
+<p>
+Una de mis partes favoritas de nuestro universo. 💗
+</p>
+
+<span class="indicador">
+Toca la foto para pasar de página →
+</span>
+
+</div>
+
+
+<div class="pagina">
+
+<img
+src="d0edc609fcbddaf15cd8c6fc297aa7a7.jpg"
+alt="Nuestro recuerdo 2">
+
+<p>
+Y pensar que todo esto empezó de una manera tan random. 🌸
+</p>
+
+<span class="indicador">
+Página 2 de 10
+</span>
+
+</div>
+
+
+<div class="pagina">
+
+<img
+src="bf955c4c4c424ee5700645a4497dfef0.jpg"
+alt="Nuestro recuerdo 3">
+
+<p>
+Me encanta poder guardar estos momentos contigo. 🫶
+</p>
+
+<span class="indicador">
+Página 3 de 10
+</span>
+
+</div>
+
+
+<div class="pagina">
+
+<img
+src="b8e3b05d5961242edc36730c0d92bef5.jpg"
+alt="Nuestro recuerdo 4">
+
+<p>
+Otra pequeña parte de todo lo que amo de ti. 💕
+</p>
+
+<span class="indicador">
+Página 4 de 10
+</span>
+
+</div>
+
+
+<div class="pagina">
+
+<img
+src="8ff5ade4e79ce79b9bb4637724a2b6c9.jpg"
+alt="Nuestro recuerdo 5">
+
+<p>
+Contigo hasta los momentos simples se sienten especiales. 🌷
+</p>
+
+<span class="indicador">
+Página 5 de 10
+</span>
+
+</div>
+
+
+<div class="pagina">
+
+<img
+src="8ca851ea2ed3149934256ac6d377eeb0.jpg"
+alt="Nuestro recuerdo 6">
+
+<p>
+Aquí probablemente estoy mirándote como un completo bobo. 😂
+</p>
+
+<span class="indicador">
+Página 6 de 10
+</span>
+
+</div>
+
+
+<div class="pagina">
+
+<img
+src="5056dd7083a49c311f834d5c9091072d.jpg"
+alt="Nuestro recuerdo 7">
+
+<p>
+Porque sí... me sigues haciendo sonreír. 💗
+</p>
+
+<span class="indicador">
+Página 7 de 10
+</span>
+
+</div>
+
+
+<div class="pagina">
+
+<img
+src="4969dfca6eeace45812d77501e9efb51.jpg"
+alt="Nuestro recuerdo 8">
+
+<p>
+Ojalá pudiéramos guardar para siempre todos estos momentos. 🥹
+</p>
+
+<span class="indicador">
+Página 8 de 10
+</span>
+
+</div>
+
+
+<div class="pagina">
+
+<img
+src="3fa7a8613442180c04842e188010256e.jpg"
+alt="Nuestro recuerdo 9">
+
+<p>
+Y todavía me quedan mil recuerdos que quiero vivir contigo. ✨
+</p>
+
+<span class="indicador">
+Página 9 de 10
+</span>
+
+</div>
+
+
+<div class="pagina">
+
+<img
+src="2792e7ddaf9ab54ff8f8a1f48f35d632.jpg"
+alt="Nuestro recuerdo 10">
+
+<p>
+La mejor parte de todas estas fotos eres tú. 💗
+</p>
+
+<span class="indicador">
+Última página ♡
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="controlesAlbum">
+
+<button onclick="paginaAnterior(event)">
+←
+</button>
+
+<button onclick="paginaSiguiente(event)">
+→
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     CARTA
+====================================================== -->
+
+<section class="seccion">
+
+<div class="contenido">
+
+<h2 class="titulo">
+
+Una carta para ti 💌
+
+</h2>
+
+
+<div class="carta">
+
+<div class="cartaContenido">
+
+
+<div class="cartaEncabezado">
+
+<div class="para">
+
+Para Jennie 💗
+
+<br>
+
+<span style="font-size:20px;">
+De Christian
+</span>
+
+</div>
+
+
+<div class="hello">
+
+🎀🐱
+
+</div>
+
+</div>
+
+
+<div class="lineaCarta">
+
+Querida Darling,
+
+</div>
+
+
+<p class="typing"
+data-text="No sé exactamente en qué momento dejaste de ser simplemente alguien con quien me gustaba hablar y te convertiste en alguien que ocupa un lugar tan enorme en mi corazón.">
+
+</p>
+
+
+<p class="typing"
+data-text="Me encanta hacerte reír, molestarte, escuchar tus bromas y hasta que te rías de mí cuando me pasa alguna desgracia. 😂">
+
+</p>
+
+
+<p class="typing"
+data-text="Contigo siento que lo tengo todo: amor, felicidad, cariño, comprensión y respeto.">
+
+</p>
+
+
+<p class="typing"
+data-text="Eres esa persona que hace que un día cualquiera se sienta especial solamente por estar ahí.">
+
+</p>
+
+
+<p class="typing"
+data-text="Y sí... a veces me quedo mirándote como un completo bobo. Pero es que, ¿cómo no hacerlo?">
+
+</p>
+
+
+<p class="typing"
+data-text="Cada día me enamoro un poquito más de tu sonrisa, de tu forma de ser, de cómo me haces sentir y de simplemente tenerte en mi vida.">
+
+</p>
+
+
+<p class="typing"
+data-text="Gracias por ser mi persona favorita, mi alegría y ese lugar al que siempre quiero volver.">
+
+</p>
+
+
+<p class="typing"
+data-text="Te amo más de lo que probablemente sé explicar.">
+
+</p>
+
+
+<div class="lineaCarta">
+
+Con todo mi amor,
+
+<br>
+
+Christian ♡
 
 </div>
 
@@ -2386,157 +2221,240 @@ P.D.
 
 <br>
 
-El hombre que te ama.
+El hombre que te ama. 💗
+
+</div>
+
 
 </div>
 
 </div>
+
 
 <button
-class="continuar"
-onclick="siguienteSegmento(15)">
+class="pulsa"
+onclick="iniciarCarta(this)">
 
-    Pulsa aquí cuando termines de leer 💗
+Pulsa aquí para leerla 💌
 
 </button>
+
 
 </div>
 
 </section>
 
 
+<!-- ======================================================
+     LO QUE QUIERO DECIRTE
+====================================================== -->
 
-<!-- ==================================================
-     HAY ALGO QUE DECIRTE
-================================================== -->
-
-<section
-class="segmento"
-id="segmento15">
+<section class="seccion">
 
 <div class="contenido">
 
 <h2 class="titulo">
-    Hay algo que quiero decirte... 🌙
+
+Hay algo que quiero decirte... 💌
+
 </h2>
 
-<div
-class="texto-revelado"
-id="mensajeEspecial">
 
-Contigo siento que no me falta nada.
+<div
+class="bloqueHistoria">
+
+<h3>
+🌷 Jennie...
+</h3>
+
+<p
+class="textoBonito">
+
+Hay veces que siento que decir
+“te amo” se queda demasiado pequeño.
+
+Porque no explica lo feliz que me haces.
+
+No explica lo mucho que disfruto
+tenerte en mi vida.
+
+No explica cómo mi corazón
+se acelera cuando apareces.
+
+</p>
 
 </div>
 
-<button
-class="continuar"
-onclick="revelarMensajeEspecial()">
 
-    Pulsa aquí 💌
+<button
+class="pulsa"
+onclick="mostrarMensaje(this)">
+
+Pulsa aquí 💗
 
 </button>
+
+
+<div
+class="segmentoContinuacion">
+
+<div class="bloqueHistoria">
+
+<h3>
+🥹 Tú significas vida para mí
+</h3>
+
+<p>
+
+Significas alegría.
+
+Significas cariño.
+
+Significas comprensión.
+
+Significas respeto.
+
+Significas ese sentimiento de llegar
+a un lugar y pensar:
+
+“aquí quiero quedarme”.
+
+</p>
+
+</div>
+
+</div>
+
+
+<button
+class="pulsa"
+onclick="mostrarMensaje2(this)">
+
+Pulsa aquí otra vez 👀
+
+</button>
+
+
+<div
+class="segmentoContinuacion">
+
+<div class="frase">
+
+Eres la mujer de mis sueños.
+
+Y lo más bonito es que
+ese sueño ya lo tengo conmigo. 💗
+
+</div>
+
+</div>
+
 
 </div>
 
 </section>
 
 
+<!-- ======================================================
+     FINAL
+====================================================== -->
 
-<!-- ==================================================
-     FINAL PREVIO
-================================================== -->
-
-<section
-class="segmento"
-id="segmento16">
+<section class="seccion">
 
 <div class="contenido final">
 
-<h2 class="final-titulo">
-    Y si llegaste hasta aquí... 🌷
+<h2>
+
+Y si llegaste hasta aquí... 🌷
+
 </h2>
 
-<p class="final-texto">
+
+<p>
+
+Quiero que sepas que no hice esto
+porque necesitara una excusa
+para decirte que te amo.
+
+</p>
+
+
+<p>
+
+Lo hice porque eres alguien
+demasiado importante para mí.
 
 Quería construirte un pequeño lugar
-donde pudieras ver aunque fuera una parte
-de todo lo que significas para mí.
+donde pudieras ver, aunque fuera
+una parte, de todo lo que significas
+para mí.
 
 </p>
 
-<p class="final-texto">
 
-Eres mi alegría,
-mi persona favorita
-y uno de mis sueños cumplidos.
+<p>
 
-</p>
+Eres mi alegría.
 
-<p class="final-texto">
+Mi persona favorita.
 
-Y sí...
-
-a veces me quedo mirándote
-como un completo bobo.
+Uno de mis sueños cumplidos.
 
 </p>
+
+
+<div class="frase">
+
+Mi ninisita linda,
+
+te elegiría en esta vida
+y en todas las que vengan. 💗
+
+</div>
+
 
 <button
 class="boton"
-onclick="mostrarFinal()">
+id="sorpresaBtn">
 
-    Última sorpresa, Darling 👀
+Toca aquí, Darling 👀
 
 </button>
 
+
 <div
-class="gran-final"
-id="granFinal"
-style="display:none;">
+class="sorpresa"
+id="sorpresa">
+
+JAJAJAJA...
+
+¿De verdad pensaste que iba
+a terminar sin hacer una última locura?
+
+😭💗
+
+<br><br>
+
+Te amo, boba.
+
+Y sí...
+
+probablemente estoy un poquito
+más de psiquiátrico después de hacerte esto.
+
+😂💗
+
+</div>
+
+
+<div class="granFinal">
 
 Estoy bobo,
-
-<br>
 
 pero de amor por ti. 💗
 
 </div>
 
-<div
-class="sorpresa-final"
-id="sorpresaFinal">
-
-JAJAJAJAJA 😭💗
-
-<br><br>
-
-¿De verdad pensaste que este loquito
-iba a terminar la página tranquilamente?
-
-<br><br>
-
-Te amo, mi ninisita linda.
-
-<br><br>
-
-Y si alguna vez dudas de cuánto...
-
-<br>
-
-vuelve aquí.
-
-<br><br>
-
-Porque esta pequeña locura
-siempre va a ser tuya.
-
-<br><br>
-
-<strong>
-Christian ♡
-</strong>
-
-</div>
 
 </div>
 
@@ -2546,35 +2464,36 @@ Christian ♡
 </main>
 
 
-<!-- BOTÓN ARRIBA -->
-
-<button
-class="arriba"
-onclick="window.scrollTo({top:0,behavior:'smooth'})">
-
-↑
-
-</button>
-
-
-
 <script>
 
-/* ==================================================
-   ENTRAR
-================================================== */
+/* =========================================================
+   ENTRAR AL UNIVERSO
+========================================================= */
 
-function entrar(){
+const entrarBtn =
+document.getElementById("entrarBtn");
 
-    const inicio =
-    document.getElementById("inicio");
+const inicio =
+document.getElementById("inicio");
 
-    const universo =
-    document.getElementById("universo");
+const universo =
+document.getElementById("universo");
+
+const reproductor =
+document.getElementById("reproductor");
+
+const musica =
+document.getElementById("musica");
+
+
+entrarBtn.addEventListener(
+"click",
+function(){
 
     inicio.style.opacity="0";
 
-    inicio.style.transform="scale(1.08)";
+    inicio.style.transform=
+    "scale(1.05)";
 
     setTimeout(function(){
 
@@ -2582,46 +2501,102 @@ function entrar(){
 
         universo.style.display="block";
 
-        setTimeout(function(){
-
-            universo.style.opacity="1";
-
-        },50);
-
-        window.scrollTo(0,0);
-
-    },1100);
-
-}
-
-
-/* ==================================================
-   SEGMENTOS
-================================================== */
-
-function siguienteSegmento(numero){
-
-    const actuales =
-    document.querySelectorAll(".segmento");
-
-    actuales.forEach(function(segmento){
-
-        segmento.classList.remove("activo");
-
-    });
-
-
-    const siguiente =
-    document.getElementById("segmento"+numero);
-
-
-    if(siguiente){
-
-        siguiente.classList.add("activo");
+        reproductor.style.display="block";
 
         window.scrollTo({
             top:0,
-            behavior:"smooth"
+            behavior:"instant"
+        });
+
+        musica.play()
+        .then(function(){
+
+            musicButton.textContent="🎶";
+
+            musicButton.classList.add(
+                "reproduciendo"
+            );
+
+        })
+        .catch(function(){
+
+            /* El navegador puede bloquear
+               el autoplay. En ese caso
+               aparecerá el botón de música. */
+
+        });
+
+    },1000);
+
+});
+
+
+/* =========================================================
+   MÚSICA
+========================================================= */
+
+const musicButton =
+document.getElementById("musicButton");
+
+
+musicButton.addEventListener(
+"click",
+function(){
+
+    if(
+        musica.paused
+    ){
+
+        musica.play();
+
+        musicButton.textContent="🎶";
+
+        musicButton.classList.add(
+            "reproduciendo"
+        );
+
+    }
+
+    else{
+
+        musica.pause();
+
+        musicButton.textContent="🎵";
+
+        musicButton.classList.remove(
+            "reproduciendo"
+        );
+
+    }
+
+});
+
+
+/* =========================================================
+   SEGMENTOS
+========================================================= */
+
+function siguienteSegmento(boton){
+
+    const actual =
+    boton.closest(".segmento");
+
+    const siguiente =
+    actual.nextElementSibling;
+
+    if(siguiente){
+
+        actual.classList.remove(
+            "activo"
+        );
+
+        siguiente.classList.add(
+            "activo"
+        );
+
+        siguiente.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
         });
 
     }
@@ -2629,321 +2604,277 @@ function siguienteSegmento(numero){
 }
 
 
-/* ==================================================
-   ENAMORAMIENTO
-================================================== */
-
-function revelarEnamoramiento(numero){
-
-    if(numero===1){
-
-        document.getElementById(
-            "enamoramientoTexto"
-        ).innerHTML=
-        "Empecé a esperar tus mensajes.<br><br>Y cuando no llegaban, los extrañaba.";
-
-        setTimeout(function(){
-
-            siguienteSegmento(7);
-
-        },2200);
-
-    }
-
-
-    if(numero===2){
-
-        document.getElementById(
-            "enamoramientoTexto2"
-        ).innerHTML=
-        "Empecé a sonreír cuando veía que eras tú.<br><br>Y ya no podía disimularlo.";
-
-        setTimeout(function(){
-
-            siguienteSegmento(8);
-
-        },2200);
-
-    }
-
-
-    if(numero===3){
-
-        document.getElementById(
-            "enamoramientoTexto3"
-        ).innerHTML=
-        "Mi corazón se aceleraba al pensar en ti.<br><br>Creo que ahí entendí que ya estaba completamente enamorado.";
-
-        setTimeout(function(){
-
-            siguienteSegmento(9);
-
-        },2800);
-
-    }
-
-}
-
-
-/* ==================================================
+/* =========================================================
    COSAS QUE AMO
-================================================== */
+========================================================= */
 
-function amorDeTi(boton,mensaje){
+function mostrarRazon(elemento,mensaje){
 
-    document
-    .querySelectorAll(".razon")
-    .forEach(function(item){
-
-        item.classList.remove(
-            "razon-activa"
-        );
-
-    });
-
-
-    boton.classList.add(
-        "razon-activa"
+    elemento.classList.remove(
+        "seleccionada"
     );
 
+    void elemento.offsetWidth;
+
+    elemento.classList.add(
+        "seleccionada"
+    );
 
     document.getElementById(
-        "amorMensaje"
-    ).innerHTML=mensaje;
+        "mensajeRazon"
+    ).textContent=mensaje;
 
 }
 
 
-/* ==================================================
+/* =========================================================
+   MOSTRAR CONTINUACIONES
+========================================================= */
+
+function mostrarSiguiente(boton){
+
+    const contenido =
+    boton.nextElementSibling;
+
+    contenido.style.display="block";
+
+    boton.style.display="none";
+
+    contenido.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+function mostrarRecuerdo(boton){
+
+    const extra =
+    document.getElementById(
+        "recuerdoExtra"
+    );
+
+    extra.style.display="block";
+
+    boton.style.display="none";
+
+    extra.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+function mostrarMensaje(boton){
+
+    const siguiente =
+    boton.nextElementSibling;
+
+    siguiente.style.display="block";
+
+    boton.style.display="none";
+
+}
+
+
+function mostrarMensaje2(boton){
+
+    const siguiente =
+    boton.nextElementSibling;
+
+    siguiente.style.display="block";
+
+    boton.style.display="none";
+
+}
+
+
+/* =========================================================
    ÁLBUM
-================================================== */
+========================================================= */
 
-let paginaActual=1;
+const portadaAlbum =
+document.getElementById(
+    "portadaAlbum"
+);
 
+const paginas =
+document.querySelectorAll(
+    ".pagina"
+);
 
-const fotosAlbum=[
-
-    "📸<br>Nuestro primer recuerdo",
-
-    "📸<br>Un momento que guardaría mil veces",
-
-    "📸<br>Una de mis fotos favoritas",
-
-    "📸<br>Ese recuerdo que me hace sonreír",
-
-    "📸<br>Un pedacito de nosotros",
-
-    "📸<br>Otro recuerdo que amo",
-
-    "📸<br>Una de esas veces que fui feliz contigo",
-
-    "📸<br>Porque tú haces especiales los días normales",
-
-    "📸<br>Un recuerdo más para guardar",
-
-    "📸<br>Y este último... para ti 💗"
-
-];
-
-
-const textosAlbum=[
-
-    "Aquí irá uno de nuestros primeros recuerdos. 💗",
-
-    "Si pudiera volver a este momento, lo haría sin pensarlo.",
-
-    "Hay fotos que guardan mucho más que una imagen.",
-
-    "Esta me recuerda lo feliz que soy cuando estoy contigo.",
-
-    "Otro pequeño pedacito de nuestro universo.",
-
-    "Porque cada recuerdo contigo termina siendo especial.",
-
-    "Me encanta tener momentos que solamente nosotros entendemos.",
-
-    "Contigo hasta lo más sencillo termina siendo bonito.",
-
-    "Uno más para nuestra pequeña colección de recuerdos.",
-
-    "Y si llegaste hasta aquí... gracias por ser mi persona favorita. ♡"
-
-];
+let paginaActual=0;
 
 
 function abrirAlbum(){
 
-    siguienteSegmento(13);
-
-    setTimeout(function(){
-
-        document
-        .getElementById("libro")
-        .classList.add("abierto");
-
-    },400);
-
-}
-
-
-function siguientePagina(){
-
-    if(paginaActual>=10){
-
-        document
-        .getElementById("libro")
-        .style.display="none";
-
-        document
-        .getElementById("finalAlbum")
-        .style.display="block";
-
-        document
-        .getElementById("botonCarta")
-        .style.display="block";
-
-        return;
-
-    }
-
-
-    paginaActual++;
-
-
-    document.getElementById(
-        "numeroPagina"
-    ).textContent=paginaActual;
-
-
-    document.getElementById(
-        "fotoLibro"
-    ).innerHTML=fotosAlbum[paginaActual-1];
-
-
-    document.getElementById(
-        "textoPagina"
-    ).textContent=textosAlbum[paginaActual-1];
-
-
-    const pagina=
-    document.querySelector(".pagina");
-
-
-    pagina.style.animation="none";
-
-
-    setTimeout(function(){
-
-        pagina.style.animation=
-        "entradaPortada .6s ease";
-
-    },20);
-
-}
-
-
-/* ==================================================
-   CARTA ESCRITA
-================================================== */
-
-const cartaLineas=[
-
-"Darling,",
-
-"No sé exactamente en qué momento dejaste de ser simplemente alguien con quien me gustaba hablar y te convertiste en alguien que ocupa un lugar enorme en mi corazón.",
-
-"Amo tu sonrisa, tus mensajes, tus bromas y esa manera tan tuya de hacerme feliz incluso sin intentarlo.",
-
-"Me encanta que podamos reírnos de cualquier tontería, que puedas entenderme y que hasta te rías de mí cuando me pasa alguna desgracia. 😂",
-
-"Contigo siento que tengo todo lo que necesito: amor, felicidad, cariño, comprensión y respeto.",
-
-"Eres la mujer de mis sueños. Y todavía me parece increíble poder decir que ese sueño se hizo realidad.",
-
-"Cada día encuentro una razón nueva para enamorarme un poquito más de ti.",
-
-"Y sí... hay veces que simplemente me quedo mirándote como un completo bobo.",
-
-"Pero es que, Jennie... ¿cómo no hacerlo?",
-
-"Te amo más de lo que sé explicar.",
-
-"Con todo mi amor,",
-
-"Christian ♡"
-
-];
-
-
-let cartaEscrita=false;
-
-
-function escribirCarta(){
-
-    if(cartaEscrita){
-        return;
-    }
-
-    cartaEscrita=true;
-
-    const contenedor=
-    document.getElementById(
-        "cartaTexto"
+    portadaAlbum.classList.add(
+        "abierto"
     );
 
+}
 
-    let linea=0;
+
+function mostrarPagina(numero){
+
+    if(
+        numero<0 ||
+        numero>=paginas.length
+    ){
+        return;
+    }
+
+    paginas[
+        paginaActual
+    ].classList.remove(
+        "activa"
+    );
+
+    paginaActual=numero;
+
+    paginas[
+        paginaActual
+    ].classList.add(
+        "activa"
+    );
+
+}
 
 
-    function escribirLinea(){
+function paginaSiguiente(event){
 
-        if(linea>=cartaLineas.length){
+    if(event){
+        event.stopPropagation();
+    }
+
+    if(
+        paginaActual<
+        paginas.length-1
+    ){
+
+        mostrarPagina(
+            paginaActual+1
+        );
+
+    }
+
+}
+
+
+function paginaAnterior(event){
+
+    if(event){
+        event.stopPropagation();
+    }
+
+    if(
+        paginaActual>0
+    ){
+
+        mostrarPagina(
+            paginaActual-1
+        );
+
+    }
+
+}
+
+
+paginas.forEach(
+function(pagina){
+
+    pagina.addEventListener(
+        "click",
+        function(){
+
+            paginaSiguiente();
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   CARTA CON EFECTO DE ESCRITURA
+========================================================= */
+
+let cartaIniciada=false;
+
+
+function iniciarCarta(boton){
+
+    if(cartaIniciada){
+        return;
+    }
+
+    cartaIniciada=true;
+
+    boton.textContent=
+    "La carta está escribiéndose... 💗";
+
+    const textos =
+    document.querySelectorAll(
+        ".typing"
+    );
+
+    let indice=0;
+
+
+    function escribirParrafo(){
+
+        if(
+            indice>=textos.length
+        ){
+
+            boton.textContent=
+            "♡ Para ti, Darling ♡";
+
             return;
+
         }
 
 
-        const div=
-        document.createElement("div");
-
-
-        div.className="linea-carta";
-
-
-        contenedor.appendChild(div);
-
+        const elemento=
+        textos[indice];
 
         const texto=
-        cartaLineas[linea];
+        elemento.getAttribute(
+            "data-text"
+        );
 
+        elemento.textContent="";
 
         let posicion=0;
 
 
-        function escribirCaracter(){
+        function escribir(){
 
-            if(posicion<texto.length){
+            if(
+                posicion<texto.length
+            ){
 
-                div.innerHTML=
-                texto.substring(0,posicion+1)
-                +
-                '<span class="cursor"></span>';
+                elemento.textContent+=
+                texto.charAt(posicion);
 
                 posicion++;
 
                 setTimeout(
-                    escribirCaracter,
-                    28
+                    escribir,
+                    22
                 );
 
-            }else{
+            }
 
-                div.innerHTML=texto;
+            else{
 
-                linea++;
+                indice++;
 
                 setTimeout(
-                    escribirLinea,
-                    350
+                    escribirParrafo,
+                    300
                 );
 
             }
@@ -2951,189 +2882,139 @@ function escribirCarta(){
         }
 
 
-        escribirCaracter();
+        escribir();
 
     }
 
 
-    escribirLinea();
+    escribirParrafo();
 
 }
 
 
-/* ==================================================
-   OBSERVAR CUANDO APARECE LA CARTA
-================================================== */
+/* =========================================================
+   CORAZONES FLOTANDO
+========================================================= */
 
-const observador=
-new MutationObserver(function(){
-
-    const carta=
-    document.getElementById("segmento14");
-
-
-    if(
-        carta &&
-        carta.classList.contains("activo")
-    ){
-
-        escribirCarta();
-
-    }
-
-});
-
-
-observador.observe(
-    document.getElementById("universo"),
-    {
-        attributes:true,
-        subtree:true,
-        attributeFilter:["class"]
-    }
-);
-
-
-/* ==================================================
-   MENSAJE ESPECIAL
-================================================== */
-
-let mensajePaso=0;
-
-
-const mensajesEspeciales=[
-
-"Contigo siento que no me falta nada. 💗",
-
-"Me das amor, felicidad, alegría, cariño, comprensión y respeto.",
-
-"Eres esa persona que hace que un día cualquiera se sienta especial solamente por estar ahí.",
-
-"Y por eso cada día me enamoro un poquito más de ti. 🥹"
-
+const corazones=[
+    "💗",
+    "💕",
+    "💖",
+    "💘",
+    "💞",
+    "🌸",
+    "✨"
 ];
 
 
-function revelarMensajeEspecial(){
+function crearCorazon(){
 
-    mensajePaso++;
+    const corazon=
+    document.createElement(
+        "div"
+    );
 
+    corazon.className=
+    "corazonFondo";
 
-    const caja=
-    document.getElementById(
-        "mensajeEspecial"
+    corazon.textContent=
+    corazones[
+        Math.floor(
+            Math.random()*
+            corazones.length
+        )
+    ];
+
+    corazon.style.left=
+    Math.random()*100+"vw";
+
+    corazon.style.fontSize=
+    (15+Math.random()*22)+"px";
+
+    const duracion=
+    6+Math.random()*6;
+
+    corazon.style.animationDuration=
+    duracion+"s";
+
+    document.body.appendChild(
+        corazon
     );
 
 
-    if(
-        mensajePaso<
-        mensajesEspeciales.length
-    ){
-
-        caja.style.opacity="0";
-
-
-        setTimeout(function(){
-
-            caja.textContent=
-            mensajesEspeciales[mensajePaso];
-
-            caja.style.opacity="1";
-
-        },250);
-
-    }else{
-
-        siguienteSegmento(16);
-
-    }
-
-}
-
-
-/* ==================================================
-   FINAL
-================================================== */
-
-function mostrarFinal(){
-
-    document.getElementById(
-        "granFinal"
-    ).style.display="block";
-
-
-    document.getElementById(
-        "sorpresaFinal"
-    ).style.display="block";
-
-
-    const simbolos=[
-
-        "💗",
-        "💕",
-        "💖",
-        "🌸",
-        "✨",
-        "🦋",
-        "♡",
-        "🌷"
-
-    ];
-
-
-    for(
-        let i=0;
-        i<55;
-        i++
-    ){
-
-        const corazon=
-        document.createElement("div");
-
-
-        corazon.className=
-        "corazon-final";
-
-
-        corazon.textContent=
-        simbolos[
-            Math.floor(
-                Math.random()*
-                simbolos.length
-            )
-        ];
-
-
-        corazon.style.left=
-        Math.random()*100+"vw";
-
-
-        corazon.style.animationDelay=
-        Math.random()*2+"s";
-
-
-        corazon.style.fontSize=
-        (18+
-        Math.random()*25)+"px";
-
-
-        document.body.appendChild(
-            corazon
-        );
-
-
-        setTimeout(function(){
+    setTimeout(
+        function(){
 
             corazon.remove();
 
-        },6000);
-
-    }
+        },
+        duracion*1000
+    );
 
 }
 
+
+setInterval(
+    crearCorazon,
+    800
+);
+
+
+/* =========================================================
+   SORPRESA FINAL
+========================================================= */
+
+document.getElementById(
+    "sorpresaBtn"
+).addEventListener(
+    "click",
+    function(){
+
+        const sorpresa=
+        document.getElementById(
+            "sorpresa"
+        );
+
+        sorpresa.style.display=
+        "block";
+
+        for(
+            let i=0;
+            i<30;
+            i++
+        ){
+
+            const corazon=
+            document.createElement(
+                "div"
+            );
+
+            corazon.className=
+            "corazonFondo";
+
+            corazon.textContent=
+            "💗";
+
+            corazon.style.left=
+            Math.random()*100+"vw";
+
+            corazon.style.animationDuration=
+            (3+Math.random()*4)+"s";
+
+            document.body.appendChild(
+                corazon
+            );
+
+        }
+
+        this.style.display=
+        "none";
+
+    }
+);
+
 </script>
 
-
 </body>
-    </html>
+
+   </html>
