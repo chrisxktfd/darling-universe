@@ -100,6 +100,8 @@ h1 {
 
 #universo {
     display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
 }
 
 .seccion {
@@ -643,11 +645,18 @@ const universo = document.getElementById("universo");
 botonEntrar.addEventListener("click", function() {
 
     inicio.style.opacity = "0";
+    inicio.style.transform = "scale(1.08)";
 
     setTimeout(function() {
 
         inicio.style.display = "none";
         universo.style.display = "block";
+
+        universo.style.opacity = "0";
+
+        setTimeout(function() {
+            universo.style.opacity = "1";
+        }, 50);
 
         window.scrollTo({
             top: 0,
