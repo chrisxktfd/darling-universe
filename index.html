@@ -8,15 +8,44 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Para mi Darling 💗</title>
+<title>Para mi Darling ❤️</title>
 
 <style>
 
-/* =========================================================
-   FUENTES Y CONFIGURACIÓN GENERAL
-========================================================= */
+/* =====================================================
+   FUENTES
+===================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display&family=Quicksand:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display&family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+
+/* =====================================================
+   COLORES PRINCIPALES
+===================================================== */
+
+:root{
+
+    --vino:#5b1024;
+    --vino2:#751d35;
+    --vino3:#8e3049;
+
+    --dorado:#d6ad55;
+    --doradoClaro:#f0d995;
+
+    --crema:#fff8e9;
+    --crema2:#f8edd8;
+
+    --texto:#542d38;
+
+    --sombra:
+    rgba(55,10,25,.30);
+
+}
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -27,46 +56,102 @@ html{
 }
 
 body{
+
     margin:0;
-    color:#66536c;
+
+    color:var(--texto);
+
     background:
+    radial-gradient(
+        circle at 20% 20%,
+        #8d3049 0,
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 80% 80%,
+        #751d35 0,
+        transparent 35%
+    ),
+
     linear-gradient(
         135deg,
-        #ffdce9,
-        #dcecff,
-        #e9ddff,
-        #fff2bd
+        #3b0818,
+        #68152c,
+        #4a0c20
     );
 
-    background-size:400% 400%;
-
-    animation:fondo 14s ease infinite;
+    min-height:100vh;
 
     overflow-x:hidden;
-}
-
-@keyframes fondo{
-
-    0%{
-        background-position:0% 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-    100%{
-        background-position:0% 50%;
-    }
 
 }
 
 
-/* =========================================================
-   CORAZONES DE FONDO
-========================================================= */
+/* =====================================================
+   BRILLOS DE FONDO
+===================================================== */
 
-.corazonFondo{
+.brillo{
+
+    position:fixed;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:var(--dorado);
+
+    box-shadow:
+    0 0 10px var(--dorado),
+    0 0 20px var(--dorado);
+
+    opacity:.6;
+
+    pointer-events:none;
+
+    animation:
+    flotarBrillo 8s linear infinite;
+
+    z-index:0;
+
+}
+
+@keyframes flotarBrillo{
+
+    from{
+
+        transform:
+        translateY(100vh)
+        scale(.5);
+
+        opacity:0;
+
+    }
+
+    20%{
+        opacity:.7;
+    }
+
+    to{
+
+        transform:
+        translateY(-20vh)
+        scale(1);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =====================================================
+   CORAZONES
+===================================================== */
+
+.corazon{
 
     position:fixed;
 
@@ -74,11 +159,10 @@ body{
 
     pointer-events:none;
 
-    z-index:0;
+    z-index:50;
 
-    opacity:.45;
-
-    animation:subirCorazon linear forwards;
+    animation:
+    subirCorazon 6s linear forwards;
 
 }
 
@@ -95,13 +179,13 @@ body{
     }
 
     15%{
-        opacity:.55;
+        opacity:.9;
     }
 
     to{
 
         transform:
-        translateY(-115vh)
+        translateY(-120vh)
         rotate(360deg);
 
         opacity:0;
@@ -111,9 +195,9 @@ body{
 }
 
 
-/* =========================================================
+/* =====================================================
    PORTADA
-========================================================= */
+===================================================== */
 
 #inicio{
 
@@ -121,15 +205,14 @@ body{
 
     display:flex;
 
-    align-items:center;
-
     justify-content:center;
+    align-items:center;
 
     padding:25px;
 
     position:relative;
 
-    z-index:2;
+    z-index:5;
 
     transition:
     opacity 1s ease,
@@ -141,25 +224,50 @@ body{
 
     width:100%;
 
-    max-width:620px;
+    max-width:650px;
 
-    padding:50px 25px;
+    padding:
+    55px 25px;
 
     text-align:center;
 
-    border-radius:40px;
-
     background:
-    rgba(255,255,255,.75);
+    linear-gradient(
+        145deg,
+        rgba(255,248,233,.97),
+        rgba(248,237,216,.95)
+    );
 
-    backdrop-filter:blur(15px);
+    border:
+    2px solid
+    rgba(214,173,85,.75);
+
+    border-radius:12px;
 
     box-shadow:
-    0 25px 70px
-    rgba(100,70,110,.20);
+    0 30px 80px
+    var(--sombra);
+
+    position:relative;
 
     animation:
-    aparecer 1.4s ease;
+    aparecer 1.3s ease;
+
+}
+
+.portada::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:10px;
+
+    border:
+    1px solid
+    rgba(214,173,85,.65);
+
+    pointer-events:none;
 
 }
 
@@ -170,7 +278,7 @@ body{
         opacity:0;
 
         transform:
-        translateY(35px)
+        translateY(30px)
         scale(.95);
 
     }
@@ -189,7 +297,7 @@ body{
 
 .decoracion{
 
-    font-size:45px;
+    font-size:42px;
 
     animation:
     latido 2s infinite;
@@ -203,23 +311,24 @@ body{
     }
 
     50%{
-        transform:scale(1.18);
+        transform:scale(1.15);
     }
 
 }
 
 .portada h1{
 
-    margin:15px 0 5px;
-
     font-family:
     "DM Serif Display",
     serif;
 
     font-size:
-    clamp(42px,10vw,70px);
+    clamp(42px,10vw,68px);
 
-    color:#a86c98;
+    color:var(--vino);
+
+    margin:
+    15px 0 5px;
 
 }
 
@@ -229,9 +338,9 @@ body{
     "Caveat",
     cursive;
 
-    font-size:32px;
+    color:#9c6e22;
 
-    color:#7885bd;
+    font-size:34px;
 
 }
 
@@ -245,31 +354,31 @@ body{
 
     line-height:1.8;
 
-    margin:
-    25px auto;
+    max-width:510px;
 
-    max-width:500px;
+    margin:25px auto;
 
 }
 
 .boton{
 
-    border:none;
+    border:
+    1px solid var(--dorado);
 
     border-radius:50px;
 
-    padding:15px 28px;
-
-    margin-top:15px;
+    padding:
+    15px 30px;
 
     background:
     linear-gradient(
         135deg,
-        #d99bc2,
-        #a995d9
+        var(--vino),
+        var(--vino2)
     );
 
-    color:white;
+    color:
+    var(--doradoClaro);
 
     font-family:
     "Quicksand",
@@ -282,8 +391,8 @@ body{
     cursor:pointer;
 
     box-shadow:
-    0 10px 25px
-    rgba(140,100,160,.25);
+    0 10px 30px
+    rgba(70,10,30,.3);
 
     transition:.3s;
 
@@ -292,15 +401,18 @@ body{
 .boton:hover{
 
     transform:
-    translateY(-3px)
+    translateY(-4px)
     scale(1.03);
+
+    box-shadow:
+    0 15px 35px
+    rgba(70,10,30,.4);
 
 }
 
 .boton:active{
 
-    transform:
-    scale(.94);
+    transform:scale(.94);
 
 }
 
@@ -310,18 +422,18 @@ body{
     "Caveat",
     cursive;
 
-    font-size:20px;
+    font-size:21px;
 
-    opacity:.7;
+    color:#80515d;
 
     margin-top:25px;
 
 }
 
 
-/* =========================================================
+/* =====================================================
    UNIVERSO
-========================================================= */
+===================================================== */
 
 #universo{
 
@@ -333,6 +445,11 @@ body{
 
 }
 
+
+/* =====================================================
+   SECCIONES
+===================================================== */
+
 .seccion{
 
     min-height:100vh;
@@ -342,9 +459,8 @@ body{
 
     display:flex;
 
-    align-items:center;
-
     justify-content:center;
+    align-items:center;
 
 }
 
@@ -357,16 +473,36 @@ body{
     padding:
     35px 22px;
 
-    border-radius:35px;
-
     background:
-    rgba(255,255,255,.73);
+    rgba(255,248,233,.96);
 
-    backdrop-filter:blur(15px);
+    border:
+    1px solid
+    rgba(214,173,85,.75);
 
     box-shadow:
-    0 20px 60px
-    rgba(90,70,100,.16);
+    0 25px 70px
+    var(--sombra);
+
+    border-radius:12px;
+
+    position:relative;
+
+}
+
+.contenido::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:9px;
+
+    border:
+    1px solid
+    rgba(214,173,85,.45);
+
+    pointer-events:none;
 
 }
 
@@ -378,50 +514,42 @@ body{
     "DM Serif Display",
     serif;
 
-    color:#a26996;
+    color:var(--vino);
 
     font-size:
-    clamp(30px,7vw,42px);
+    clamp(30px,7vw,44px);
 
-    margin-bottom:25px;
-
-}
-
-.textoBonito{
-
-    font-family:
-    "Quicksand",
-    sans-serif;
-
-    text-align:center;
-
-    line-height:1.8;
-
-    font-size:17px;
+    margin-bottom:30px;
 
 }
 
 
-/* =========================================================
-   SEGMENTOS INTERACTIVOS
-========================================================= */
+/* =====================================================
+   SISTEMA DE FRAGMENTOS
+===================================================== */
 
-.segmento{
+.capitulo{
+
+    position:relative;
+
+}
+
+.fragmento{
 
     display:none;
 
     animation:
-    aparecerSegmento .8s ease;
+    fragmentoEntra .8s ease;
 
 }
 
-.segmento.activo{
+.fragmento.activo{
 
     display:block;
 
 }
 
-@keyframes aparecerSegmento{
+@keyframes fragmentoEntra{
 
     from{
 
@@ -429,7 +557,7 @@ body{
 
         transform:
         translateY(25px)
-        scale(.97);
+        scale(.98);
 
     }
 
@@ -445,88 +573,77 @@ body{
 
 }
 
-.bloqueHistoria{
+.tarjetaFragmento{
 
-    padding:25px;
-
-    border-radius:28px;
+    padding:
+    28px 22px;
 
     background:
-    rgba(255,255,255,.7);
+    linear-gradient(
+        145deg,
+        #fffaf0,
+        #f8edd8
+    );
 
-    margin-bottom:20px;
+    border-left:
+    5px solid
+    var(--dorado);
 
     box-shadow:
-    0 8px 25px
-    rgba(100,80,110,.08);
+    0 10px 30px
+    rgba(70,20,30,.10);
+
+    border-radius:6px;
 
 }
 
-.bloqueHistoria h3{
+.tarjetaFragmento h3{
+
+    margin-top:0;
 
     font-family:
     "Caveat",
     cursive;
 
-    font-size:30px;
+    color:
+    var(--vino2);
 
-    color:#7d83ba;
-
-    margin-top:0;
+    font-size:32px;
 
 }
 
-.bloqueHistoria p{
+.tarjetaFragmento p{
 
     font-family:
     "Quicksand",
     sans-serif;
 
-    line-height:1.8;
-
     font-size:17px;
 
-}
-
-.pista{
-
-    text-align:center;
-
-    font-family:
-    "Caveat",
-    cursive;
-
-    font-size:23px;
-
-    color:#a36c96;
-
-    margin:25px 0;
+    line-height:1.9;
 
 }
-
-
-/* =========================================================
-   BOTÓN PULSA AQUÍ
-========================================================= */
 
 .pulsa{
 
     display:block;
 
     margin:
-    25px auto 5px;
+    28px auto 5px;
 
-    border:none;
+    padding:
+    13px 26px;
+
+    border:
+    1px solid var(--dorado);
 
     border-radius:50px;
 
-    padding:
-    14px 25px;
-
     background:
-    rgba(255,255,255,.9);
+    var(--vino);
 
-    color:#88648d;
+    color:
+    var(--doradoClaro);
 
     font-family:
     "Quicksand",
@@ -536,10 +653,6 @@ body{
 
     cursor:pointer;
 
-    box-shadow:
-    0 8px 20px
-    rgba(120,90,130,.15);
-
     transition:.3s;
 
 }
@@ -547,21 +660,62 @@ body{
 .pulsa:hover{
 
     transform:
-    scale(1.06);
+    translateY(-3px)
+    scale(1.04);
 
 }
 
 .pulsa:active{
 
-    transform:
-    scale(.92);
+    transform:scale(.93);
+
+}
+
+.finalCapitulo{
+
+    text-align:center;
+
+    font-family:
+    "Caveat",
+    cursive;
+
+    font-size:28px;
+
+    color:
+    var(--vino2);
+
+    padding:25px;
+
+}
+
+.decoracionDorada{
+
+    color:var(--dorado);
+
+    font-size:22px;
+
+    letter-spacing:8px;
 
 }
 
 
-/* =========================================================
+/* =====================================================
    COSAS QUE AMO
-========================================================= */
+===================================================== */
+
+.textoIntro{
+
+    text-align:center;
+
+    font-family:
+    "Quicksand",
+    sans-serif;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
 
 .razones{
 
@@ -578,46 +732,50 @@ body{
 
     min-height:130px;
 
-    padding:20px 10px;
-
-    border-radius:25px;
-
-    background:
-    rgba(255,255,255,.72);
-
     display:flex;
 
     flex-direction:column;
 
-    align-items:center;
-
     justify-content:center;
+    align-items:center;
 
     text-align:center;
 
-    font-family:
-    "Quicksand",
-    sans-serif;
+    padding:18px 10px;
+
+    border:
+    1px solid
+    rgba(214,173,85,.55);
+
+    border-radius:8px;
+
+    background:
+    #fffaf0;
 
     cursor:pointer;
 
     transition:.35s;
+
+    font-family:
+    "Quicksand",
+    sans-serif;
 
 }
 
 .razon:hover{
 
     transform:
-    translateY(-7px)
-    rotate(-1deg);
+    translateY(-6px);
+
+    box-shadow:
+    0 10px 25px
+    rgba(70,20,30,.12);
 
 }
 
 .razon span{
 
     font-size:40px;
-
-    display:block;
 
     margin-bottom:10px;
 
@@ -638,13 +796,13 @@ body{
 
     40%{
         transform:
-        scale(1.6)
+        scale(1.55)
         rotate(15deg);
     }
 
     70%{
         transform:
-        scale(.85)
+        scale(.8)
         rotate(-10deg);
     }
 
@@ -656,31 +814,9 @@ body{
 
 .mensajeRazon{
 
-    min-height:45px;
+    min-height:60px;
 
-    margin-top:20px;
-
-    text-align:center;
-
-    font-family:
-    "Caveat",
-    cursive;
-
-    font-size:24px;
-
-    color:#a26c98;
-
-}
-
-.frase{
-
-    margin-top:25px;
-
-    padding:23px;
-
-    border-radius:25px;
-
-    background:#eee5ff;
+    margin-top:22px;
 
     text-align:center;
 
@@ -690,14 +826,42 @@ body{
 
     font-size:25px;
 
-    color:#795b82;
+    color:
+    var(--vino2);
+
+}
+
+.frase{
+
+    margin-top:25px;
+
+    padding:23px;
+
+    background:
+    var(--vino);
+
+    color:
+    var(--doradoClaro);
+
+    border-radius:7px;
+
+    text-align:center;
+
+    font-family:
+    "Caveat",
+    cursive;
+
+    font-size:27px;
+
+    border:
+    1px solid var(--dorado);
 
 }
 
 
-/* =========================================================
+/* =====================================================
    RECUERDO
-========================================================= */
+===================================================== */
 
 .recuerdo{
 
@@ -707,9 +871,9 @@ body{
     "Quicksand",
     sans-serif;
 
-    line-height:1.9;
-
     font-size:18px;
+
+    line-height:1.9;
 
 }
 
@@ -719,16 +883,17 @@ body{
     "Caveat",
     cursive;
 
-    font-size:35px;
+    font-size:36px;
 
-    color:#a86b99;
+    color:
+    var(--vino2);
 
 }
 
 
-/* =========================================================
+/* =====================================================
    ÁLBUM
-========================================================= */
+===================================================== */
 
 .albumIntro{
 
@@ -738,7 +903,7 @@ body{
     "Quicksand",
     sans-serif;
 
-    line-height:1.7;
+    line-height:1.8;
 
 }
 
@@ -753,9 +918,9 @@ body{
     margin:
     30px auto;
 
-    position:relative;
+    perspective:1600px;
 
-    perspective:1500px;
+    position:relative;
 
 }
 
@@ -765,44 +930,47 @@ body{
 
     inset:0;
 
-    border-radius:25px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #f6b8d5,
-        #bdb4ed
-    );
-
-    box-shadow:
-    0 20px 40px
-    rgba(90,70,110,.25);
+    z-index:20;
 
     display:flex;
 
     flex-direction:column;
 
-    align-items:center;
-
     justify-content:center;
+    align-items:center;
 
     text-align:center;
 
     cursor:pointer;
 
-    z-index:20;
+    border-radius:8px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #5b1024,
+        #8e3049
+    );
+
+    border:
+    2px solid
+    var(--dorado);
+
+    box-shadow:
+    0 20px 50px
+    rgba(50,5,20,.35);
+
+    transform-origin:left center;
 
     transition:
     transform 1.2s ease;
-
-    transform-origin:left center;
 
 }
 
 .portadaAlbum.abierto{
 
     transform:
-    rotateY(-145deg);
+    rotateY(-150deg);
 
 }
 
@@ -814,9 +982,10 @@ body{
 
     font-size:40px;
 
-    color:white;
+    color:
+    var(--doradoClaro);
 
-    margin:10px;
+    margin:12px;
 
 }
 
@@ -826,9 +995,9 @@ body{
     "Caveat",
     cursive;
 
-    color:white;
+    color:#fff8e9;
 
-    font-size:25px;
+    font-size:26px;
 
 }
 
@@ -838,11 +1007,16 @@ body{
 
     inset:0;
 
-    border-radius:25px;
+    background:
+    #fff8e9;
 
-    background:#fffaf3;
+    border-radius:8px;
 
     overflow:hidden;
+
+    border:
+    1px solid
+    var(--dorado);
 
 }
 
@@ -852,22 +1026,21 @@ body{
 
     inset:0;
 
-    padding:20px;
-
     display:none;
 
     flex-direction:column;
 
     align-items:center;
-
     justify-content:center;
 
     text-align:center;
 
-    animation:
-    paginaEntra .6s ease;
+    padding:20px;
 
     cursor:pointer;
+
+    animation:
+    paginaEntra .6s ease;
 
 }
 
@@ -885,7 +1058,7 @@ body{
 
         transform:
         rotateY(-20deg)
-        translateX(25px);
+        translateX(20px);
 
     }
 
@@ -909,11 +1082,15 @@ body{
 
     object-fit:cover;
 
-    border-radius:20px;
+    border-radius:5px;
+
+    border:
+    3px solid
+    var(--dorado);
 
     box-shadow:
     0 12px 30px
-    rgba(80,60,90,.2);
+    rgba(50,20,30,.2);
 
 }
 
@@ -923,11 +1100,12 @@ body{
     "Caveat",
     cursive;
 
-    font-size:24px;
+    font-size:25px;
 
-    color:#88648d;
+    color:
+    var(--vino2);
 
-    margin:12px 0 0;
+    margin:12px 0 3px;
 
 }
 
@@ -937,11 +1115,9 @@ body{
     "Quicksand",
     sans-serif;
 
-    font-size:13px;
+    font-size:12px;
 
-    opacity:.65;
-
-    margin-top:5px;
+    opacity:.6;
 
 }
 
@@ -951,53 +1127,56 @@ body{
 
     justify-content:center;
 
-    gap:10px;
+    gap:12px;
 
 }
 
 .controlesAlbum button{
 
-    border:none;
-
-    border-radius:50%;
-
     width:48px;
 
     height:48px;
 
-    background:
-    rgba(255,255,255,.9);
+    border-radius:50%;
 
-    cursor:pointer;
+    border:
+    1px solid
+    var(--dorado);
+
+    background:
+    var(--vino);
+
+    color:
+    var(--doradoClaro);
 
     font-size:20px;
 
-    box-shadow:
-    0 5px 15px
-    rgba(80,60,90,.12);
+    cursor:pointer;
 
 }
 
 
-/* =========================================================
+/* =====================================================
    CARTA
-========================================================= */
+===================================================== */
 
 .carta{
 
-    position:relative;
-
     background:
-    #fffaf1;
+    #fffaf0;
+
+    border:
+    1px solid
+    #d8bd85;
 
     padding:
     30px 23px;
 
-    border-radius:8px;
-
     box-shadow:
     0 15px 35px
-    rgba(90,60,80,.18);
+    rgba(70,20,30,.18);
+
+    position:relative;
 
     font-family:
     "Caveat",
@@ -1005,9 +1184,7 @@ body{
 
     font-size:24px;
 
-    line-height:1.7;
-
-    overflow:hidden;
+    line-height:1.8;
 
 }
 
@@ -1017,14 +1194,11 @@ body{
 
     position:absolute;
 
-    inset:0;
+    inset:12px;
 
-    background:
-    repeating-linear-gradient(
-        transparent,
-        transparent 39px,
-        rgba(200,170,190,.18) 40px
-    );
+    border:
+    1px solid
+    rgba(180,140,60,.35);
 
     pointer-events:none;
 
@@ -1046,15 +1220,16 @@ body{
 
     align-items:center;
 
-    margin-bottom:20px;
+    margin-bottom:25px;
 
 }
 
 .para{
 
-    font-size:27px;
+    color:
+    var(--vino2);
 
-    color:#a46b94;
+    font-size:28px;
 
 }
 
@@ -1063,32 +1238,25 @@ body{
     font-size:48px;
 
     animation:
-    flotar .9s ease-in-out infinite alternate;
+    helloFlota 1s ease-in-out infinite alternate;
 
 }
 
-@keyframes flotar{
+@keyframes helloFlota{
 
     from{
-        transform:rotate(-5deg) translateY(0);
+        transform:rotate(-5deg);
     }
 
     to{
-        transform:rotate(5deg) translateY(-7px);
+        transform:rotate(5deg) translateY(-6px);
     }
-
-}
-
-.lineaCarta{
-
-    margin:
-    20px 0;
 
 }
 
 .typing{
 
-    min-height:1.5em;
+    min-height:1.4em;
 
 }
 
@@ -1096,18 +1264,19 @@ body{
 
     margin-top:30px;
 
-    font-size:22px;
-
     text-align:right;
 
-    color:#a16b95;
+    color:
+    var(--vino2);
+
+    font-size:23px;
 
 }
 
 
-/* =========================================================
-   ÚLTIMO FRAGMENTO
-========================================================= */
+/* =====================================================
+   ÚLTIMO CAPÍTULO
+===================================================== */
 
 .final{
 
@@ -1121,10 +1290,11 @@ body{
     "DM Serif Display",
     serif;
 
+    color:
+    var(--vino);
+
     font-size:
     clamp(35px,8vw,55px);
-
-    color:#a56c98;
 
 }
 
@@ -1136,7 +1306,7 @@ body{
 
     font-size:18px;
 
-    line-height:1.8;
+    line-height:1.9;
 
 }
 
@@ -1146,24 +1316,22 @@ body{
 
     padding:30px 20px;
 
-    border-radius:30px;
-
     background:
-    linear-gradient(
-        135deg,
-        #ffd9e8,
-        #e7ddff,
-        #fff0bd
-    );
+    var(--vino);
+
+    color:
+    var(--doradoClaro);
+
+    border:
+    1px solid
+    var(--dorado);
 
     font-family:
     "Caveat",
     cursive;
 
     font-size:
-    clamp(32px,8vw,48px);
-
-    color:#91658d;
+    clamp(34px,8vw,50px);
 
     animation:
     finalLatido 2s infinite;
@@ -1190,9 +1358,12 @@ body{
 
     padding:25px;
 
-    border-radius:25px;
+    background:
+    var(--crema);
 
-    background:#fff;
+    border:
+    1px solid
+    var(--dorado);
 
     font-family:
     "Caveat",
@@ -1206,16 +1377,15 @@ body{
 }
 
 
-/* =========================================================
+/* =====================================================
    MÚSICA
-========================================================= */
+===================================================== */
 
 .reproductor{
 
     position:fixed;
 
     right:15px;
-
     bottom:15px;
 
     z-index:100;
@@ -1227,40 +1397,38 @@ body{
 .musicButton{
 
     width:55px;
-
     height:55px;
-
-    border:none;
 
     border-radius:50%;
 
+    border:
+    1px solid
+    var(--dorado);
+
     background:
-    linear-gradient(
-        135deg,
-        #d99bc2,
-        #9f94d4
-    );
+    var(--vino);
 
-    color:white;
+    color:
+    var(--doradoClaro);
 
-    font-size:23px;
+    font-size:22px;
 
     cursor:pointer;
 
     box-shadow:
     0 8px 25px
-    rgba(90,70,110,.25);
+    rgba(30,5,15,.35);
 
 }
 
 .musicButton.reproduciendo{
 
     animation:
-    girarMusica 2s linear infinite;
+    musicaGira 2s linear infinite;
 
 }
 
-@keyframes girarMusica{
+@keyframes musicaGira{
 
     from{
         transform:rotate(0);
@@ -1273,9 +1441,9 @@ body{
 }
 
 
-/* =========================================================
+/* =====================================================
    RESPONSIVE
-========================================================= */
+===================================================== */
 
 @media(max-width:600px){
 
@@ -1295,12 +1463,6 @@ body{
     .pagina img{
 
         height:285px;
-
-    }
-
-    .carta{
-
-        font-size:22px;
 
     }
 
@@ -1336,9 +1498,38 @@ body{
 <body>
 
 
-<!-- ======================================================
-     AUDIO
-====================================================== -->
+<!-- =====================================================
+     BRILLOS
+===================================================== -->
+
+<script>
+
+for(let i=0;i<25;i++){
+
+    const brillo =
+    document.createElement("div");
+
+    brillo.className="brillo";
+
+    brillo.style.left =
+    Math.random()*100+"vw";
+
+    brillo.style.animationDelay =
+    Math.random()*8+"s";
+
+    brillo.style.animationDuration =
+    (5+Math.random()*7)+"s";
+
+    document.body.appendChild(brillo);
+
+}
+
+</script>
+
+
+<!-- =====================================================
+     MÚSICA
+===================================================== -->
 
 <audio
 id="musica"
@@ -1351,10 +1542,6 @@ type="audio/mpeg">
 
 </audio>
 
-
-<!-- ======================================================
-     REPRODUCTOR
-====================================================== -->
 
 <div
 class="reproductor"
@@ -1371,24 +1558,30 @@ id="musicButton">
 </div>
 
 
-<!-- ======================================================
+<!-- =====================================================
      PORTADA
-====================================================== -->
+===================================================== -->
 
 <section id="inicio">
 
 <div class="portada">
 
 <div class="decoracion">
-🌷 💗 🌷
+
+🌹 ✨ ❤️ ✨ 🌹
+
 </div>
 
 <h1>
+
 Para mi Darling
+
 </h1>
 
 <div class="ninisita">
+
 Mi ninisita linda 💗
+
 </div>
 
 <p class="portadaTexto">
@@ -1428,16 +1621,16 @@ por un loquito enamorado.
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      UNIVERSO
-====================================================== -->
+===================================================== -->
 
 <main id="universo">
 
 
-<!-- ======================================================
-     HISTORIA
-====================================================== -->
+<!-- =====================================================
+     CAPÍTULO 1
+===================================================== -->
 
 <section class="seccion">
 
@@ -1445,14 +1638,16 @@ por un loquito enamorado.
 
 <h2 class="titulo">
 
-Y pensar que todo empezó tan random... 🌸
+Y pensar que todo empezó tan random... 🌹
 
 </h2>
 
+<div class="capitulo">
 
-<div class="segmento activo">
 
-<div class="bloqueHistoria">
+<div class="fragmento activo">
+
+<div class="tarjetaFragmento">
 
 <h3>
 🌱 El comienzo
@@ -1461,12 +1656,9 @@ Y pensar que todo empezó tan random... 🌸
 <p>
 
 Te conocí gracias a un team.
+
 Al principio ni siquiera tuvimos
 mucha interacción.
-
-Pero después terminamos hablando
-de la manera más random posible:
-respondiste un estado de WhatsApp.
 
 </p>
 
@@ -1474,32 +1666,64 @@ respondiste un estado de WhatsApp.
 
 <button
 class="pulsa"
-onclick="siguienteSegmento(this)">
+onclick="siguienteFragmento(this)">
 
-Pulsa aquí 🌷
+Pulsa aquí ✨
 
 </button>
 
 </div>
 
 
-<div class="segmento">
+<div class="fragmento">
 
-<div class="bloqueHistoria">
+<div class="tarjetaFragmento">
 
 <h3>
-💬 Y empezamos a hablar
+💬 Y entonces...
 </h3>
 
 <p>
 
-Nos escribíamos todos los días
-y poco a poco nos hicimos amigos.
+Después terminamos hablando
+de la manera más random posible:
 
-Me encantaba hablar contigo porque
-siempre terminábamos riéndonos,
-haciendo bromas y diciendo cualquier
-tontería.
+respondiste un estado de WhatsApp.
+
+Y quién iba a decir que algo
+tan pequeño terminaría significando
+tanto.
+
+</p>
+
+</div>
+
+<button
+class="pulsa"
+onclick="siguienteFragmento(this)">
+
+Pulsa aquí 💗
+
+</button>
+
+</div>
+
+
+<div class="fragmento">
+
+<div class="tarjetaFragmento">
+
+<h3>
+😂 Nos volvimos amigos
+</h3>
+
+<p>
+
+Nos escribíamos todos los días.
+
+Hablábamos de cualquier cosa,
+hacíamos bromas y nos reíamos
+muchísimo.
 
 Nuestro humor se parecía tanto
 que conectar contigo fue demasiado fácil.
@@ -1510,18 +1734,18 @@ que conectar contigo fue demasiado fácil.
 
 <button
 class="pulsa"
-onclick="siguienteSegmento(this)">
+onclick="siguienteFragmento(this)">
 
-Pulsa aquí 💗
+Pulsa aquí 🌷
 
 </button>
 
 </div>
 
 
-<div class="segmento">
+<div class="fragmento">
 
-<div class="bloqueHistoria">
+<div class="tarjetaFragmento">
 
 <h3>
 💗 Algo empezó a cambiar
@@ -1537,9 +1761,7 @@ Te recordaba en canciones,
 en cosas que veía,
 en momentos del día.
 
-Y mi corazón...
-
-bueno, mi corazón empezó
+Mi corazón empezó
 a hacer de las suyas.
 
 </p>
@@ -1548,7 +1770,7 @@ a hacer de las suyas.
 
 <button
 class="pulsa"
-onclick="siguienteSegmento(this)">
+onclick="siguienteFragmento(this)">
 
 Pulsa aquí 🥹
 
@@ -1557,9 +1779,9 @@ Pulsa aquí 🥹
 </div>
 
 
-<div class="segmento">
+<div class="fragmento">
 
-<div class="bloqueHistoria">
+<div class="tarjetaFragmento">
 
 <h3>
 ❤️ Y aquí estamos
@@ -1568,12 +1790,9 @@ Pulsa aquí 🥹
 <p>
 
 Esa persona con la que empecé
-hablando de una manera completamente
+hablando de una forma completamente
 random terminó convirtiéndose
 en la mujer de mis sueños.
-
-Y todavía me parece increíble
-que seas tú.
 
 </p>
 
@@ -1585,17 +1804,27 @@ El amor de esta y otras vidas eres tú. ♡
 
 </div>
 
+<button
+class="pulsa"
+onclick="terminarCapitulo(this)">
+
+Continuar → 💗
+
+</button>
+
 </div>
 
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- ======================================================
-     COSAS QUE AMO
-====================================================== -->
+<!-- =====================================================
+     CAPÍTULO 2
+===================================================== -->
 
 <section class="seccion">
 
@@ -1607,13 +1836,12 @@ Cosas que amo de ti 💕
 
 </h2>
 
-<p class="textoBonito">
+<p class="textoIntro">
 
-Pulsa cada una.
+Ahora quiero que tú las descubras.
 
-Quiero que descubras
-qué pasa cuando tocas
-cada pedacito de mi corazón.
+Pulsa cada una de estas pequeñas
+cosas que amo de ti.
 
 </p>
 
@@ -1623,7 +1851,8 @@ cada pedacito de mi corazón.
 
 <div
 class="razon"
-onclick="mostrarRazon(this,'Tu sonrisa puede arreglarme un día entero. 😊')">
+onclick="mostrarRazon(this,
+'Tu sonrisa puede arreglarme un día entero. 😊')">
 
 <span>😊</span>
 
@@ -1634,7 +1863,8 @@ Tu sonrisa
 
 <div
 class="razon"
-onclick="mostrarRazon(this,'Tus mensajes son de esas pequeñas cosas que siempre espero con ilusión. 💬')">
+onclick="mostrarRazon(this,
+'Tus mensajes son de esas pequeñas cosas que siempre espero con ilusión. 💬')">
 
 <span>💬</span>
 
@@ -1645,7 +1875,8 @@ Tus mensajes
 
 <div
 class="razon"
-onclick="mostrarRazon(this,'Tus bromas... incluso cuando te burlas de mí. 😂')">
+onclick="mostrarRazon(this,
+'Tus bromas... incluso cuando te burlas de mí. 😂')">
 
 <span>😂</span>
 
@@ -1656,7 +1887,8 @@ Tus bromas
 
 <div
 class="razon"
-onclick="mostrarRazon(this,'Me encanta que puedas entenderme incluso cuando no sé cómo explicar lo que siento. 🫶')">
+onclick="mostrarRazon(this,
+'Me encanta que puedas entenderme incluso cuando no sé cómo explicar lo que siento. 🫶')">
 
 <span>🫶</span>
 
@@ -1667,7 +1899,8 @@ Cómo me entiendes
 
 <div
 class="razon"
-onclick="mostrarRazon(this,'Tu forma de ser fue una de las primeras cosas que me hizo querer quedarme. 🌷')">
+onclick="mostrarRazon(this,
+'Tu forma de ser fue una de las primeras cosas que me hizo querer quedarme. 🌷')">
 
 <span>🌷</span>
 
@@ -1678,7 +1911,8 @@ Tu forma de ser
 
 <div
 class="razon"
-onclick="mostrarRazon(this,'Y después de todo... simplemente amo que seas tú. 💗')">
+onclick="mostrarRazon(this,
+'Y después de todo... simplemente amo que seas tú. 💗')">
 
 <span>💗</span>
 
@@ -1691,8 +1925,10 @@ Simplemente tú
 
 
 <div
-id="mensajeRazon"
-class="mensajeRazon">
+class="mensajeRazon"
+id="mensajeRazon">
+
+Pulsa una de ellas... 💗
 
 </div>
 
@@ -1707,7 +1943,7 @@ Me encanta cuando me dices
 
 <button
 class="pulsa"
-onclick="mostrarSiguiente(this)">
+onclick="mostrarAmor(this)">
 
 Pulsa aquí 🫶
 
@@ -1715,9 +1951,10 @@ Pulsa aquí 🫶
 
 
 <div
-class="segmentoContinuacion">
+class="fragmento"
+id="amorExtra">
 
-<div class="bloqueHistoria">
+<div class="tarjetaFragmento">
 
 <h3>
 💗 Porque eres tú
@@ -1740,6 +1977,14 @@ La que me da una razón para sonreír.
 
 </div>
 
+<button
+class="pulsa"
+onclick="irSiguienteSeccion(this)">
+
+Continuar → ✨
+
+</button>
+
 </div>
 
 
@@ -1748,9 +1993,9 @@ La que me da una razón para sonreír.
 </section>
 
 
-<!-- ======================================================
-     RECUERDO
-====================================================== -->
+<!-- =====================================================
+     CAPÍTULO 3
+===================================================== -->
 
 <section class="seccion">
 
@@ -1763,48 +2008,124 @@ Un recuerdo que nunca voy a olvidar 🥹
 </h2>
 
 
-<div class="recuerdo">
+<div class="capitulo">
 
-<p class="recuerdoGrande">
 
-La vez que te pedí que fueras mi novia.
+<div class="fragmento activo">
 
-</p>
+<div class="tarjetaFragmento">
+
+<h3>
+❤️ Ese momento
+</h3>
 
 <p>
 
-Todavía recuerdo tu cara de incredulidad.
+La vez que te pedí que fueras mi novia.
+
+Todavía recuerdo tu cara
+de incredulidad.
+
+</p>
+
+</div>
+
+<button
+class="pulsa"
+onclick="siguienteFragmento(this)">
+
+Pulsa aquí 🥹
+
+</button>
+
+</div>
+
+
+<div class="fragmento">
+
+<div class="tarjetaFragmento">
+
+<h3>
+😂 ¿Era una broma?
+</h3>
+
+<p>
 
 Te reías y me preguntabas
 si era una broma.
 
 Simplemente no te lo creías.
 
-</p>
-
-<p>
-
 Y yo solo podía reírme
 viendo tu reacción.
-
-Creo que pocas veces he disfrutado
-tanto ver a alguien tan confundida.
-
-😂
-
-</p>
-
-<p>
-
-Pero detrás de todas esas risas
-había algo muy serio:
-
-yo realmente quería que fueras tú.
 
 </p>
 
 </div>
 
+<button
+class="pulsa"
+onclick="siguienteFragmento(this)">
+
+Pulsa aquí 💗
+
+</button>
+
+</div>
+
+
+<div class="fragmento">
+
+<div class="tarjetaFragmento">
+
+<h3>
+💗 Lo que yo estaba pensando
+</h3>
+
+<p>
+
+Mientras tú estabas intentando
+entender si hablaba en serio,
+
+yo solamente pensaba
+en lo mucho que quería
+que fueras tú.
+
+</p>
+
+</div>
+
+<button
+class="pulsa"
+onclick="siguienteFragmento(this)">
+
+Pulsa aquí 🌹
+
+</button>
+
+</div>
+
+
+<div class="fragmento">
+
+<div class="tarjetaFragmento">
+
+<h3>
+🥹 Y ahora...
+</h3>
+
+<p>
+
+Creo que ese momento
+se quedó guardado en mi cabeza
+para siempre.
+
+Y si pudiera volver atrás,
+volvería a elegirte.
+
+</p>
+
+</div>
 
 <div class="frase">
 
@@ -1812,55 +2133,27 @@ Eres mi amor en esta y las otras vidas. ♡
 
 </div>
 
-
 <button
 class="pulsa"
-onclick="mostrarRecuerdo(this)">
+onclick="terminarCapitulo(this)">
 
-Pulsa aquí 🥹
+Continuar → 💗
 
 </button>
 
-
-<div
-class="segmentoContinuacion"
-id="recuerdoExtra">
-
-<div class="bloqueHistoria">
-
-<h3>
-❤️ Y volvería a elegirte
-</h3>
-
-<p>
-
-Si pudiera volver a ese momento,
-volvería a preguntártelo.
-
-Y probablemente tú volverías
-a pensar que estoy haciendo una broma.
-
-Tan boba. 😂
-
-Pero sí.
-
-Te elegiría otra vez.
-
-</p>
-
 </div>
 
-</div>
 
+</div>
 
 </div>
 
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      ÁLBUM
-====================================================== -->
+===================================================== -->
 
 <section class="seccion">
 
@@ -1868,16 +2161,16 @@ Te elegiría otra vez.
 
 <h2 class="titulo">
 
-Nuestro pequeño álbum 📖💗
+Nuestro pequeño álbum 📖
 
 </h2>
 
 <p class="albumIntro">
 
-Toca la portada.
+Toca la portada para abrirlo.
 
-Después, cada vez que pulses
-una página, el álbum continuará.
+Después toca cada página
+para descubrir el siguiente recuerdo.
 
 </p>
 
@@ -1891,7 +2184,7 @@ id="portadaAlbum"
 onclick="abrirAlbum()">
 
 <div style="font-size:55px;">
-🎀 🐱
+🌹 ✨
 </div>
 
 <h3>
@@ -1915,15 +2208,15 @@ Toca para abrir
 <div class="pagina activa">
 
 <img
-src="f8dc37b71b4002de4bdba9da44beaa08.jpg"
-alt="Nuestro recuerdo 1">
+src="f8dc37b71b4002de4bdba9da44beaa08.jpg">
 
 <p>
-Una de mis partes favoritas de nuestro universo. 💗
+Una de mis partes favoritas
+de nuestro universo. 💗
 </p>
 
 <span class="indicador">
-Toca la foto para pasar de página →
+Toca para pasar →
 </span>
 
 </div>
@@ -1932,11 +2225,11 @@ Toca la foto para pasar de página →
 <div class="pagina">
 
 <img
-src="d0edc609fcbddaf15cd8c6fc297aa7a7.jpg"
-alt="Nuestro recuerdo 2">
+src="d0edc609fcbddaf15cd8c6fc297aa7a7.jpg">
 
 <p>
-Y pensar que todo esto empezó de una manera tan random. 🌸
+Todo esto comenzó de una manera
+tan inesperada. 🌷
 </p>
 
 <span class="indicador">
@@ -1949,11 +2242,11 @@ Página 2 de 10
 <div class="pagina">
 
 <img
-src="bf955c4c4c424ee5700645a4497dfef0.jpg"
-alt="Nuestro recuerdo 3">
+src="bf955c4c4c424ee5700645a4497dfef0.jpg">
 
 <p>
-Me encanta poder guardar estos momentos contigo. 🫶
+Me encanta poder guardar
+estos momentos contigo. 🫶
 </p>
 
 <span class="indicador">
@@ -1966,11 +2259,11 @@ Página 3 de 10
 <div class="pagina">
 
 <img
-src="b8e3b05d5961242edc36730c0d92bef5.jpg"
-alt="Nuestro recuerdo 4">
+src="b8e3b05d5961242edc36730c0d92bef5.jpg">
 
 <p>
-Otra pequeña parte de todo lo que amo de ti. 💕
+Otra pequeña parte de todo
+lo que amo de ti. 💕
 </p>
 
 <span class="indicador">
@@ -1983,11 +2276,11 @@ Página 4 de 10
 <div class="pagina">
 
 <img
-src="8ff5ade4e79ce79b9bb4637724a2b6c9.jpg"
-alt="Nuestro recuerdo 5">
+src="8ff5ade4e79ce79b9bb4637724a2b6c9.jpg">
 
 <p>
-Contigo hasta los momentos simples se sienten especiales. 🌷
+Contigo hasta los momentos
+simples se sienten especiales. 🌹
 </p>
 
 <span class="indicador">
@@ -2000,11 +2293,11 @@ Página 5 de 10
 <div class="pagina">
 
 <img
-src="8ca851ea2ed3149934256ac6d377eeb0.jpg"
-alt="Nuestro recuerdo 6">
+src="8ca851ea2ed3149934256ac6d377eeb0.jpg">
 
 <p>
-Aquí probablemente estoy mirándote como un completo bobo. 😂
+Aquí probablemente estoy mirándote
+como un completo bobo. 😂
 </p>
 
 <span class="indicador">
@@ -2017,11 +2310,11 @@ Página 6 de 10
 <div class="pagina">
 
 <img
-src="5056dd7083a49c311f834d5c9091072d.jpg"
-alt="Nuestro recuerdo 7">
+src="5056dd7083a49c311f834d5c9091072d.jpg">
 
 <p>
-Porque sí... me sigues haciendo sonreír. 💗
+Porque sí...
+me sigues haciendo sonreír. 💗
 </p>
 
 <span class="indicador">
@@ -2034,11 +2327,11 @@ Página 7 de 10
 <div class="pagina">
 
 <img
-src="4969dfca6eeace45812d77501e9efb51.jpg"
-alt="Nuestro recuerdo 8">
+src="4969dfca6eeace45812d77501e9efb51.jpg">
 
 <p>
-Ojalá pudiéramos guardar para siempre todos estos momentos. 🥹
+Ojalá pudiéramos guardar
+para siempre estos momentos. 🥹
 </p>
 
 <span class="indicador">
@@ -2051,11 +2344,11 @@ Página 8 de 10
 <div class="pagina">
 
 <img
-src="3fa7a8613442180c04842e188010256e.jpg"
-alt="Nuestro recuerdo 9">
+src="3fa7a8613442180c04842e188010256e.jpg">
 
 <p>
-Y todavía me quedan mil recuerdos que quiero vivir contigo. ✨
+Todavía me quedan mil recuerdos
+que quiero vivir contigo. ✨
 </p>
 
 <span class="indicador">
@@ -2068,11 +2361,11 @@ Página 9 de 10
 <div class="pagina">
 
 <img
-src="2792e7ddaf9ab54ff8f8a1f48f35d632.jpg"
-alt="Nuestro recuerdo 10">
+src="2792e7ddaf9ab54ff8f8a1f48f35d632.jpg">
 
 <p>
-La mejor parte de todas estas fotos eres tú. 💗
+La mejor parte de todas estas
+fotos eres tú. ❤️
 </p>
 
 <span class="indicador">
@@ -2089,11 +2382,13 @@ La mejor parte de todas estas fotos eres tú. 💗
 
 <div class="controlesAlbum">
 
-<button onclick="paginaAnterior(event)">
+<button
+onclick="paginaAnterior(event)">
 ←
 </button>
 
-<button onclick="paginaSiguiente(event)">
+<button
+onclick="paginaSiguiente(event)">
 →
 </button>
 
@@ -2105,9 +2400,9 @@ La mejor parte de todas estas fotos eres tú. 💗
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      CARTA
-====================================================== -->
+===================================================== -->
 
 <section class="seccion">
 
@@ -2139,7 +2434,6 @@ De Christian
 
 </div>
 
-
 <div class="hello">
 
 🎀🐱
@@ -2149,62 +2443,62 @@ De Christian
 </div>
 
 
-<div class="lineaCarta">
+<div>
 
 Querida Darling,
 
 </div>
 
 
-<p class="typing"
+<p
+class="typing"
 data-text="No sé exactamente en qué momento dejaste de ser simplemente alguien con quien me gustaba hablar y te convertiste en alguien que ocupa un lugar tan enorme en mi corazón.">
-
 </p>
 
 
-<p class="typing"
+<p
+class="typing"
 data-text="Me encanta hacerte reír, molestarte, escuchar tus bromas y hasta que te rías de mí cuando me pasa alguna desgracia. 😂">
-
 </p>
 
 
-<p class="typing"
+<p
+class="typing"
 data-text="Contigo siento que lo tengo todo: amor, felicidad, cariño, comprensión y respeto.">
-
 </p>
 
 
-<p class="typing"
+<p
+class="typing"
 data-text="Eres esa persona que hace que un día cualquiera se sienta especial solamente por estar ahí.">
-
 </p>
 
 
-<p class="typing"
+<p
+class="typing"
 data-text="Y sí... a veces me quedo mirándote como un completo bobo. Pero es que, ¿cómo no hacerlo?">
-
 </p>
 
 
-<p class="typing"
+<p
+class="typing"
 data-text="Cada día me enamoro un poquito más de tu sonrisa, de tu forma de ser, de cómo me haces sentir y de simplemente tenerte en mi vida.">
-
 </p>
 
 
-<p class="typing"
+<p
+class="typing"
 data-text="Gracias por ser mi persona favorita, mi alegría y ese lugar al que siempre quiero volver.">
-
 </p>
 
 
-<p class="typing"
+<p
+class="typing"
 data-text="Te amo más de lo que probablemente sé explicar.">
-
 </p>
 
 
-<div class="lineaCarta">
+<div>
 
 Con todo mi amor,
 
@@ -2221,7 +2515,7 @@ P.D.
 
 <br>
 
-El hombre que te ama. 💗
+El hombre que te ama.
 
 </div>
 
@@ -2245,9 +2539,9 @@ Pulsa aquí para leerla 💌
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      LO QUE QUIERO DECIRTE
-====================================================== -->
+===================================================== -->
 
 <section class="seccion">
 
@@ -2260,62 +2554,59 @@ Hay algo que quiero decirte... 💌
 </h2>
 
 
-<div
-class="bloqueHistoria">
+<div class="capitulo">
+
+
+<div class="fragmento activo">
+
+<div class="tarjetaFragmento">
 
 <h3>
-🌷 Jennie...
+🌹 Jennie...
 </h3>
 
-<p
-class="textoBonito">
+<p>
 
 Hay veces que siento que decir
 “te amo” se queda demasiado pequeño.
 
-Porque no explica lo feliz que me haces.
-
-No explica lo mucho que disfruto
-tenerte en mi vida.
-
-No explica cómo mi corazón
-se acelera cuando apareces.
+Porque no explica lo feliz
+que me haces.
 
 </p>
 
 </div>
 
-
 <button
 class="pulsa"
-onclick="mostrarMensaje(this)">
+onclick="siguienteFragmento(this)">
 
 Pulsa aquí 💗
 
 </button>
 
+</div>
 
-<div
-class="segmentoContinuacion">
 
-<div class="bloqueHistoria">
+<div class="fragmento">
+
+<div class="tarjetaFragmento">
 
 <h3>
-🥹 Tú significas vida para mí
+❤️ Lo que significas para mí
 </h3>
 
 <p>
 
+Significas vida.
+
 Significas alegría.
 
-Significas cariño.
+Significas cariño,
+comprensión y respeto.
 
-Significas comprensión.
-
-Significas respeto.
-
-Significas ese sentimiento de llegar
-a un lugar y pensar:
+Significas ese sentimiento
+de llegar a un lugar y pensar:
 
 “aquí quiero quedarme”.
 
@@ -2323,20 +2614,52 @@ a un lugar y pensar:
 
 </div>
 
-</div>
-
-
 <button
 class="pulsa"
-onclick="mostrarMensaje2(this)">
+onclick="siguienteFragmento(this)">
 
-Pulsa aquí otra vez 👀
+Pulsa aquí 🥹
 
 </button>
 
+</div>
 
-<div
-class="segmentoContinuacion">
+
+<div class="fragmento">
+
+<div class="tarjetaFragmento">
+
+<h3>
+💗 Mi persona
+</h3>
+
+<p>
+
+Contigo siento que no me falta
+nada más.
+
+Porque contigo tengo amor,
+felicidad, alegría y cariño.
+
+Y cada día me enamoro
+un poquito más.
+
+</p>
+
+</div>
+
+<button
+class="pulsa"
+onclick="siguienteFragmento(this)">
+
+Pulsa aquí 🌷
+
+</button>
+
+</div>
+
+
+<div class="fragmento">
 
 <div class="frase">
 
@@ -2347,17 +2670,27 @@ ese sueño ya lo tengo conmigo. 💗
 
 </div>
 
+<button
+class="pulsa"
+onclick="terminarCapitulo(this)">
+
+Continuar → ✨
+
+</button>
+
 </div>
 
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      FINAL
-====================================================== -->
+===================================================== -->
 
 <section class="seccion">
 
@@ -2365,7 +2698,7 @@ ese sueño ya lo tengo conmigo. 💗
 
 <h2>
 
-Y si llegaste hasta aquí... 🌷
+Y si llegaste hasta aquí... 🌹
 
 </h2>
 
@@ -2431,7 +2764,7 @@ JAJAJAJA...
 ¿De verdad pensaste que iba
 a terminar sin hacer una última locura?
 
-😭💗
+😭❤️
 
 <br><br>
 
@@ -2440,7 +2773,8 @@ Te amo, boba.
 Y sí...
 
 probablemente estoy un poquito
-más de psiquiátrico después de hacerte esto.
+más de psiquiátrico después
+de hacerte esto.
 
 😂💗
 
@@ -2451,7 +2785,7 @@ más de psiquiátrico después de hacerte esto.
 
 Estoy bobo,
 
-pero de amor por ti. 💗
+pero de amor por ti. ❤️
 
 </div>
 
@@ -2466,9 +2800,9 @@ pero de amor por ti. 💗
 
 <script>
 
-/* =========================================================
-   ENTRAR AL UNIVERSO
-========================================================= */
+/* =====================================================
+   ENTRAR
+===================================================== */
 
 const entrarBtn =
 document.getElementById("entrarBtn");
@@ -2485,6 +2819,9 @@ document.getElementById("reproductor");
 const musica =
 document.getElementById("musica");
 
+const musicButton =
+document.getElementById("musicButton");
+
 
 entrarBtn.addEventListener(
 "click",
@@ -2493,7 +2830,7 @@ function(){
     inicio.style.opacity="0";
 
     inicio.style.transform=
-    "scale(1.05)";
+    "scale(1.04)";
 
     setTimeout(function(){
 
@@ -2520,9 +2857,8 @@ function(){
         })
         .catch(function(){
 
-            /* El navegador puede bloquear
-               el autoplay. En ese caso
-               aparecerá el botón de música. */
+            /* Si el navegador bloquea
+               autoplay, se usará el botón. */
 
         });
 
@@ -2531,21 +2867,15 @@ function(){
 });
 
 
-/* =========================================================
+/* =====================================================
    MÚSICA
-========================================================= */
-
-const musicButton =
-document.getElementById("musicButton");
-
+===================================================== */
 
 musicButton.addEventListener(
 "click",
 function(){
 
-    if(
-        musica.paused
-    ){
+    if(musica.paused){
 
         musica.play();
 
@@ -2555,9 +2885,7 @@ function(){
             "reproduciendo"
         );
 
-    }
-
-    else{
+    }else{
 
         musica.pause();
 
@@ -2572,43 +2900,77 @@ function(){
 });
 
 
-/* =========================================================
-   SEGMENTOS
-========================================================= */
+/* =====================================================
+   PASAR FRAGMENTOS
+===================================================== */
 
-function siguienteSegmento(boton){
+function siguienteFragmento(boton){
 
     const actual =
-    boton.closest(".segmento");
+    boton.closest(".fragmento");
 
     const siguiente =
     actual.nextElementSibling;
 
-    if(siguiente){
+    if(
+        siguiente &&
+        siguiente.classList.contains("fragmento")
+    ){
 
-        actual.classList.remove(
-            "activo"
-        );
+        actual.classList.remove("activo");
 
-        siguiente.classList.add(
-            "activo"
-        );
+        siguiente.classList.add("activo");
 
-        siguiente.scrollIntoView({
-            behavior:"smooth",
-            block:"center"
-        });
+        setTimeout(function(){
+
+            siguiente.scrollIntoView({
+                behavior:"smooth",
+                block:"center"
+            });
+
+        },100);
 
     }
 
 }
 
 
-/* =========================================================
-   COSAS QUE AMO
-========================================================= */
+/* =====================================================
+   TERMINAR CAPÍTULO
+===================================================== */
 
-function mostrarRazon(elemento,mensaje){
+function terminarCapitulo(boton){
+
+    const seccion =
+    boton.closest(".seccion");
+
+    const siguiente =
+    seccion.nextElementSibling;
+
+    if(siguiente){
+
+        setTimeout(function(){
+
+            siguiente.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
+        },150);
+
+    }
+
+}
+
+
+/* =====================================================
+   COSAS QUE AMO
+===================================================== */
+
+function mostrarRazon(
+    elemento,
+    mensaje
+){
 
     elemento.classList.remove(
         "seleccionada"
@@ -2627,32 +2989,15 @@ function mostrarRazon(elemento,mensaje){
 }
 
 
-/* =========================================================
-   MOSTRAR CONTINUACIONES
-========================================================= */
+/* =====================================================
+   MOSTRAR AMOR EXTRA
+===================================================== */
 
-function mostrarSiguiente(boton){
-
-    const contenido =
-    boton.nextElementSibling;
-
-    contenido.style.display="block";
-
-    boton.style.display="none";
-
-    contenido.scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-    });
-
-}
-
-
-function mostrarRecuerdo(boton){
+function mostrarAmor(boton){
 
     const extra =
     document.getElementById(
-        "recuerdoExtra"
+        "amorExtra"
     );
 
     extra.style.display="block";
@@ -2667,33 +3012,9 @@ function mostrarRecuerdo(boton){
 }
 
 
-function mostrarMensaje(boton){
-
-    const siguiente =
-    boton.nextElementSibling;
-
-    siguiente.style.display="block";
-
-    boton.style.display="none";
-
-}
-
-
-function mostrarMensaje2(boton){
-
-    const siguiente =
-    boton.nextElementSibling;
-
-    siguiente.style.display="block";
-
-    boton.style.display="none";
-
-}
-
-
-/* =========================================================
+/* =====================================================
    ÁLBUM
-========================================================= */
+===================================================== */
 
 const portadaAlbum =
 document.getElementById(
@@ -2723,7 +3044,9 @@ function mostrarPagina(numero){
         numero<0 ||
         numero>=paginas.length
     ){
+
         return;
+
     }
 
     paginas[
@@ -2797,9 +3120,9 @@ function(pagina){
 });
 
 
-/* =========================================================
-   CARTA CON EFECTO DE ESCRITURA
-========================================================= */
+/* =====================================================
+   CARTA ESCRIBIÉNDOSE
+===================================================== */
 
 let cartaIniciada=false;
 
@@ -2807,13 +3130,16 @@ let cartaIniciada=false;
 function iniciarCarta(boton){
 
     if(cartaIniciada){
+
         return;
+
     }
 
     cartaIniciada=true;
 
     boton.textContent=
-    "La carta está escribiéndose... 💗";
+    "La carta está escribiéndose... ✍️";
+
 
     const textos =
     document.querySelectorAll(
@@ -2866,15 +3192,13 @@ function iniciarCarta(boton){
                     22
                 );
 
-            }
-
-            else{
+            }else{
 
                 indice++;
 
                 setTimeout(
                     escribirParrafo,
-                    300
+                    350
                 );
 
             }
@@ -2892,30 +3216,27 @@ function iniciarCarta(boton){
 }
 
 
-/* =========================================================
-   CORAZONES FLOTANDO
-========================================================= */
+/* =====================================================
+   CORAZONES
+===================================================== */
 
 const corazones=[
+    "❤️",
     "💗",
     "💕",
     "💖",
-    "💘",
-    "💞",
-    "🌸",
-    "✨"
+    "🌹",
+    "✨",
+    "💞"
 ];
 
 
 function crearCorazon(){
 
-    const corazon=
-    document.createElement(
-        "div"
-    );
+    const corazon =
+    document.createElement("div");
 
-    corazon.className=
-    "corazonFondo";
+    corazon.className="corazon";
 
     corazon.textContent=
     corazones[
@@ -2932,7 +3253,7 @@ function crearCorazon(){
     (15+Math.random()*22)+"px";
 
     const duracion=
-    6+Math.random()*6;
+    5+Math.random()*6;
 
     corazon.style.animationDuration=
     duracion+"s";
@@ -2940,7 +3261,6 @@ function crearCorazon(){
     document.body.appendChild(
         corazon
     );
-
 
     setTimeout(
         function(){
@@ -2956,64 +3276,64 @@ function crearCorazon(){
 
 setInterval(
     crearCorazon,
-    800
+    1000
 );
 
 
-/* =========================================================
+/* =====================================================
    SORPRESA FINAL
-========================================================= */
+===================================================== */
 
 document.getElementById(
     "sorpresaBtn"
 ).addEventListener(
-    "click",
-    function(){
+"click",
+function(){
 
-        const sorpresa=
-        document.getElementById(
-            "sorpresa"
+    const sorpresa =
+    document.getElementById(
+        "sorpresa"
+    );
+
+    sorpresa.style.display=
+    "block";
+
+    this.style.display="none";
+
+
+    for(
+        let i=0;
+        i<35;
+        i++
+    ){
+
+        const corazon =
+        document.createElement(
+            "div"
         );
 
-        sorpresa.style.display=
-        "block";
+        corazon.className=
+        "corazon";
 
-        for(
-            let i=0;
-            i<30;
-            i++
-        ){
+        corazon.textContent=
+        "❤️";
 
-            const corazon=
-            document.createElement(
-                "div"
-            );
+        corazon.style.left=
+        Math.random()*100+"vw";
 
-            corazon.className=
-            "corazonFondo";
+        corazon.style.animationDuration=
+        (3+Math.random()*4)+"s";
 
-            corazon.textContent=
-            "💗";
-
-            corazon.style.left=
-            Math.random()*100+"vw";
-
-            corazon.style.animationDuration=
-            (3+Math.random()*4)+"s";
-
-            document.body.appendChild(
-                corazon
-            );
-
-        }
-
-        this.style.display=
-        "none";
+        document.body.appendChild(
+            corazon
+        );
 
     }
-);
+
+});
 
 </script>
+
 
 </body>
 
