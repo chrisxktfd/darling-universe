@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi ninisita linda 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Georgia, serif;
+}
+
+body {
+    background: linear-gradient(
+        135deg,
+        #ffd6e8,
+        #d9e9ff,
+        #e8d8ff,
+        #fff0b8
+    );
+}
+
+/* PANTALLA DE ENTRADA */
+
+#inicio {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(
+        135deg,
+        #ffd6e8,
+        #d9e9ff,
+        #e8d8ff,
+        #fff0b8
+    );
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.contenido-inicio {
+    max-width: 420px;
+}
+
+.contenido-inicio h1 {
+    font-size: 2.4rem;
+    color: #735477;
+    margin-bottom: 15px;
+}
+
+.contenido-inicio p {
+    font-size: 1.15rem;
+    color: #66566b;
+    line-height: 1.6;
+}
+
+.boton {
+    margin-top: 25px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    color: #a45b91;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(120, 80, 130, 0.2);
+    cursor: pointer;
+}
+
+.boton:active {
+    transform: scale(0.95);
+}
+
+/* UNIVERSO */
+
+#universo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.titulo {
+    position: absolute;
+    top: 45px;
+    left: 20px;
+    right: 20px;
+    text-align: center;
+    z-index: 3;
+}
+
+.titulo h2 {
+    color: #735477;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.titulo p {
+    color: #756878;
+    margin-top: 8px;
+}
+
+.contador {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 30px;
+    color: #805d83;
+    font-size: 0.9rem;
+    z-index: 5;
+}
+
+/* ELEMENTOS */
+
+.objeto {
+    position: absolute;
+    border: none;
+    background: transparent;
+    font-size: 2.4rem;
+    cursor: pointer;
+    animation: flotar 4s ease-in-out infinite;
+    z-index: 4;
+}
+
+.objeto:active {
+    transform: scale(1.4);
+}
+
+.estrella1 {
+    top: 25%;
+    left: 15%;
+}
+
+.estrella2 {
+    top: 38%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.corazon {
+    bottom: 25%;
+    left: 20%;
+    animation-delay: 0.5s;
+}
+
+.flor {
+    bottom: 18%;
+    right: 20%;
+    animation-delay: 1.5s;
+}
+
+.mariposa {
+    top: 62%;
+    left: 48%;
+    animation-delay: 2s;
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* MENSAJE */
+
+.mensaje {
+    position: fixed;
+    left: 50%;
+    bottom: 25px;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 390px;
+    padding: 18px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 25px;
+    text-align: center;
+    color: #66566b;
+    box-shadow: 0 10px 35px rgba(100,70,120,0.18);
+    z-index: 20;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.mensaje.mostrar {
+    opacity: 1;
+}
+
+.mensaje strong {
+    display: block;
+    color: #a45b91;
+    margin-bottom: 7px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ENTRADA -->
+
+<section id="inicio">
+    <div class="contenido-inicio">
+        <h1>Para mi Darling 🌷</h1>
+
+        <p>
+            Hice un pequeño lugar para ti...
+            <br>
+            aunque probablemente ya deberías
+            sospechar que este bobo planeó algo. 🥹
+        </p>
+
+        <button class="boton" onclick="entrar()">
+            ✨ Entrar ✨
+        </button>
+    </div>
+</section>
+
+<!-- UNIVERSO -->
+
+<main id="universo">
+
+    <div class="contador">
+        ✨ <span id="numero">0</span> / 7
+    </div>
+
+    <div class="titulo">
+        <h2>Bienvenida, mi ninisita linda 🌈</h2>
+        <p>Hay algunas cosas escondidas por aquí...</p>
+    </div>
+
+    <button class="objeto estrella1" onclick="secreto(this, 'Creo que desde que empezamos a hablar me gustaba demasiado hacerte reír. ✨')">
+        ⭐
+    </button>
+
+    <button class="objeto estrella2" onclick="secreto(this, 'Todavía me acuerdo de tu cara cuando te pedí que fueras mi novia. No te lo creías. 😂💗')">
+        🌟
+    </button>
+
+    <button class="objeto corazon" onclick="secreto(this, 'Empecé a esperar tus mensajes más de lo que quería admitir... y creo que ahí ya estaba bastante perdido. 💗')">
+        💗
+    </button>
+
+    <button class="objeto flor" onclick="secreto(this, 'Tu sonrisa tiene una habilidad bastante injusta para hacerme feliz. 🌸')">
+        🌸
+    </button>
+
+    <button class="objeto mariposa" onclick="secreto(this, 'Y sí, Darling... sigo siendo el mismo bobo que se queda mirándote sin saber qué decir. 🦋')">
+        🦋
+    </button>
+
+</main>
+
+<div class="mensaje" id="mensaje">
+    <strong id="mensaje-titulo"></strong>
+    <span id="mensaje-texto"></span>
+</div>
+
+<script>
+
+let secretos = 0;
+
+function entrar() {
+
+    const inicio = document.getElementById("inicio");
+
+    inicio.style.opacity = "0";
+    inicio.style.transform = "scale(1.1)";
+
+    setTimeout(() => {
+        inicio.style.display = "none";
+    }, 1200);
+}
+
+function secreto(elemento, texto) {
+
+    if (elemento.dataset.encontrado === "true") {
+        return;
+    }
+
+    elemento.dataset.encontrado = "true";
+
+    secretos++;
+
+    document.getElementById("numero").textContent = secretos;
+
+    mostrarMensaje(
+        "✨ Secreto encontrado",
+        texto
+    );
+
+    elemento.style.opacity = "0.35";
+}
+
+function mostrarMensaje(titulo, texto) {
+
+    const caja = document.getElementById("mensaje");
+
+    document.getElementById("mensaje-titulo").textContent = titulo;
+    document.getElementById("mensaje-texto").textContent = texto;
+
+    caja.classList.add("mostrar");
+
+    setTimeout(() => {
+        caja.classList.remove("mostrar");
+    }, 4500);
+}
+
+</script>
+
+</body>
+</html>
