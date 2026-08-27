@@ -3,566 +3,609 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Para mi Darling 💗</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    font-family:Georgia,serif;
-    background:linear-gradient(135deg,#ffd9e8,#dceeff,#e7ddff,#fff1bd);
-    background-size:400% 400%;
-    animation:fondo 12s ease infinite;
-    color:#514052;
-    overflow-x:hidden;
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    color: #59465d;
+    background: linear-gradient(135deg, #ffd9e8, #dcecff, #e8ddff, #fff0bd);
+    background-size: 400% 400%;
+    animation: fondo 12s ease infinite;
 }
 
-@keyframes fondo{
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+@keyframes fondo {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.flotante{
-    position:fixed;
-    font-size:22px;
-    pointer-events:none;
-    animation:subir 7s linear infinite;
-    opacity:.7;
-    z-index:0;
+/* PORTADA */
+
+#inicio {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    text-align: center;
+    transition: opacity 1s ease;
 }
 
-@keyframes subir{
-    0%{
-        transform:translateY(100vh) rotate(0deg);
-        opacity:0;
+.tarjeta {
+    width: 100%;
+    max-width: 600px;
+    padding: 45px 25px;
+    border-radius: 35px;
+    background: rgba(255,255,255,.72);
+    box-shadow: 0 15px 45px rgba(90,70,100,.18);
+    backdrop-filter: blur(12px);
+}
+
+.flor {
+    font-size: 42px;
+    animation: latido 2s infinite;
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: 44px;
+    color: #9b668e;
+}
+
+.subtitulo {
+    font-size: 23px;
+    color: #7b82b8;
+    margin-bottom: 25px;
+}
+
+.texto {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.boton {
+    margin-top: 25px;
+    padding: 15px 27px;
+    border: none;
+    border-radius: 40px;
+    background: #d99bc2;
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(150,90,130,.25);
+}
+
+.boton:active {
+    transform: scale(.95);
+}
+
+.pequeno {
+    margin-top: 25px;
+    font-size: 14px;
+    opacity: .7;
+}
+
+/* UNIVERSO */
+
+#universo {
+    display: none;
+}
+
+.seccion {
+    min-height: 100vh;
+    padding: 70px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido {
+    width: 100%;
+    max-width: 850px;
+    padding: 35px 22px;
+    border-radius: 35px;
+    background: rgba(255,255,255,.72);
+    box-shadow: 0 15px 45px rgba(90,70,100,.15);
+    backdrop-filter: blur(12px);
+}
+
+.titulo {
+    text-align: center;
+    color: #9b668e;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.historia {
+    display: grid;
+    gap: 16px;
+}
+
+.historia div {
+    padding: 20px;
+    border-radius: 23px;
+    background: rgba(255,255,255,.65);
+    border-left: 6px solid #d99bc2;
+}
+
+.historia h3 {
+    margin-top: 0;
+    color: #7b82b8;
+}
+
+.historia p {
+    line-height: 1.7;
+}
+
+.razones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.razon {
+    padding: 22px 12px;
+    border-radius: 23px;
+    text-align: center;
+    background: rgba(255,255,255,.7);
+    font-size: 16px;
+}
+
+.razon span {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.frase {
+    margin-top: 25px;
+    padding: 22px;
+    border-radius: 25px;
+    background: #eee5ff;
+    text-align: center;
+    font-size: 21px;
+    color: #795b82;
+}
+
+.recuerdo {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.album {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.foto {
+    aspect-ratio: 1;
+    border-radius: 23px;
+    background: linear-gradient(135deg, #ffd6e7, #ddd4ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+}
+
+.carta {
+    padding: 27px 22px;
+    border-radius: 25px;
+    background: #fffaf0;
+    line-height: 1.85;
+    font-size: 18px;
+}
+
+.final {
+    text-align: center;
+}
+
+.final h2 {
+    color: #9b668e;
+    font-size: 34px;
+}
+
+.final p {
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+.corazon {
+    position: fixed;
+    font-size: 22px;
+    pointer-events: none;
+    animation: subir 7s linear infinite;
+    opacity: .7;
+}
+
+@keyframes subir {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
     }
-    15%{opacity:.8}
-    100%{
-        transform:translateY(-10vh) rotate(360deg);
-        opacity:0;
+    15% { opacity: .7; }
+    to {
+        transform: translateY(-15vh);
+        opacity: 0;
     }
 }
 
-.pantalla{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:25px;
-    position:relative;
-    z-index:1;
+@keyframes latido {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
 }
 
-.tarjeta{
-    width:100%;
-    max-width:650px;
-    padding:45px 25px;
-    border-radius:35px;
-    background:rgba(255,255,255,.72);
-    backdrop-filter:blur(12px);
-    box-shadow:0 15px 45px rgba(91,70,100,.18);
-}
+@media (max-width: 500px) {
+    h1 {
+        font-size: 38px;
+    }
 
-.estrella{
-    font-size:35px;
-    margin-bottom:10px;
-    animation:latido 2s infinite;
-}
-
-h1{
-    font-size:48px;
-    color:#9c668f;
-    margin-bottom:8px;
-}
-
-.subtitulo{
-    font-size:23px;
-    color:#7b82b8;
-    margin-bottom:25px;
-}
-
-.texto{
-    font-size:18px;
-    line-height:1.7;
-}
-
-.boton{
-    border:none;
-    padding:15px 25px;
-    margin-top:25px;
-    border-radius:30px;
-    background:#d99bc2;
-    color:white;
-    font-size:17px;
-    font-family:Georgia,serif;
-    cursor:pointer;
-    box-shadow:0 7px 18px rgba(150,90,130,.25);
-    transition:.3s;
-}
-
-.boton:hover{
-    transform:translateY(-3px) scale(1.03);
-}
-
-@keyframes latido{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.15)}
-}
-
-#universo{
-    display:none;
-}
-
-.seccion{
-    min-height:100vh;
-    padding:80px 20px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-    z-index:1;
-}
-
-.contenido{
-    width:100%;
-    max-width:900px;
-    background:rgba(255,255,255,.72);
-    backdrop-filter:blur(12px);
-    border-radius:35px;
-    padding:40px 25px;
-    box-shadow:0 15px 45px rgba(91,70,100,.15);
-}
-
-.titulo{
-    text-align:center;
-    font-size:35px;
-    color:#9c668f;
-    margin-bottom:25px;
-}
-
-.historia{
-    display:grid;
-    gap:18px;
-}
-
-.historia div{
-    padding:22px;
-    border-radius:25px;
-    background:rgba(255,255,255,.65);
-    border-left:6px solid #d99bc2;
-}
-
-.historia h3{
-    color:#7b82b8;
-    margin-bottom:8px;
-}
-
-.historia p{
-    line-height:1.7;
-}
-
-.razones{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-}
-
-.razon{
-    background:rgba(255,255,255,.7);
-    padding:25px 15px;
-    border-radius:25px;
-    text-align:center;
-    transition:.3s;
-}
-
-.razon:hover{
-    transform:translateY(-7px) rotate(1deg);
-}
-
-.razon span{
-    font-size:35px;
-    display:block;
-    margin-bottom:10px;
-}
-
-.recuerdo{
-    text-align:center;
-    font-size:19px;
-    line-height:1.8;
-}
-
-.frase{
-    margin-top:25px;
-    padding:25px;
-    border-radius:25px;
-    background:#eee5ff;
-    text-align:center;
-    font-size:23px;
-    color:#795b82;
-}
-
-.album{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-}
-
-.foto{
-    aspect-ratio:1;
-    border-radius:25px;
-    background:linear-gradient(135deg,#ffd6e7,#dcd4ff);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:15px;
-    overflow:hidden;
-    border:4px solid rgba(255,255,255,.8);
-}
-
-.foto img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:18px;
-}
-
-.carta{
-    background:#fffaf0;
-    padding:30px 25px;
-    border-radius:25px;
-    box-shadow:0 8px 25px rgba(100,70,80,.12);
-    line-height:1.9;
-    font-size:18px;
-}
-
-.final{
-    text-align:center;
-}
-
-.final h2{
-    font-size:38px;
-    color:#9c668f;
-    margin-bottom:20px;
-}
-
-.final p{
-    font-size:20px;
-    line-height:1.8;
-}
-
-.pequeno{
-    margin-top:25px;
-    font-size:14px;
-    opacity:.7;
-}
-
-@media(max-width:500px){
-    h1{font-size:39px}
-    .titulo{font-size:30px}
-    .album{grid-template-columns:1fr 1fr}
-    .contenido{padding:30px 18px}
+    .titulo {
+        font-size: 28px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="flotante" style="left:8%;animation-delay:0s">♡</div>
-<div class="flotante" style="left:25%;animation-delay:2s">✦</div>
-<div class="flotante" style="left:48%;animation-delay:4s">♡</div>
-<div class="flotante" style="left:70%;animation-delay:1s">✧</div>
-<div class="flotante" style="left:88%;animation-delay:3s">♡</div>
+<section id="inicio">
 
-<section class="pantalla" id="inicio">
+    <div class="tarjeta">
 
-<div class="tarjeta">
+        <div class="flor">🌷</div>
 
-<div class="estrella">🌷</div>
+        <h1>Para mi Darling</h1>
 
-<h1>Para mi Darling</h1>
+        <div class="subtitulo">
+            Mi ninisita linda 💗
+        </div>
 
-<div class="subtitulo">Mi ninisita linda 💗</div>
+        <p class="texto">
+            Hay personas que llegan a nuestra vida sin avisar...
+            y terminan convirtiéndose en nuestro lugar favorito.
+        </p>
 
-<p class="texto">
-Hay personas que llegan a nuestra vida sin avisar...
-y terminan convirtiéndose en nuestro lugar favorito.
-</p>
+        <p class="texto">
+            Esta pequeña locura es para ti.
+        </p>
 
-<p class="texto" style="margin-top:15px;">
-Esta pequeña locura es para ti.
-</p>
+        <button class="boton" id="entrarBtn">
+            Entrar a nuestro universo ✨
+        </button>
 
-<button class="boton" onclick="entrar()">
-Entrar a nuestro universo ✨
-</button>
+        <p class="pequeno">
+            Advertencia: este sitio fue hecho por un loquito enamorado.
+        </p>
 
-<p class="pequeno">
-Advertencia: este sitio fue hecho por un loquito enamorado.
-</p>
+    </div>
 
-</div>
 </section>
 
 
-<div id="universo">
+<main id="universo">
 
+    <section class="seccion">
 
-<section class="seccion">
+        <div class="contenido">
 
-<div class="contenido">
+            <h2 class="titulo">
+                Y pensar que todo empezó tan random... 🌸
+            </h2>
 
-<h2 class="titulo">Y pensar que todo empezó tan random... 🌸</h2>
+            <div class="historia">
 
-<div class="historia">
+                <div>
+                    <h3>🌱 El comienzo</h3>
+                    <p>
+                        Te conocí gracias a un team. Al principio ni siquiera tuvimos mucha interacción, pero después terminamos hablando de la manera más random posible: respondiste un estado de WhatsApp.
+                    </p>
+                </div>
 
-<div>
-<h3>🌱 El comienzo</h3>
-<p>
-Te conocí gracias a un team. Al principio ni siquiera tuvimos mucha interacción, pero después terminamos hablando de la manera más random posible: respondiste un estado de WhatsApp.
-</p>
-</div>
+                <div>
+                    <h3>💬 Y empezamos a hablar</h3>
+                    <p>
+                        Nos escribíamos todos los días y poco a poco nos hicimos amigos. Me encantaba hablar contigo porque siempre terminábamos riéndonos, haciendo bromas y diciendo cualquier tontería.
+                    </p>
+                </div>
 
-<div>
-<h3>💬 Y empezamos a hablar</h3>
-<p>
-Nos escribíamos todos los días y poco a poco nos hicimos amigos. Me encantaba hablar contigo porque siempre terminábamos riéndonos, haciendo bromas y diciendo cualquier tontería.
-</p>
-</div>
+                <div>
+                    <h3>💗 Algo empezó a cambiar</h3>
+                    <p>
+                        Empecé a esperar tus mensajes. Sonreía cuando veía que eras tú, te recordaba en canciones y en cualquier cosa que veía. Mi corazón empezó a hacer de las suyas.
+                    </p>
+                </div>
 
-<div>
-<h3>💗 Algo empezó a cambiar</h3>
-<p>
-Hasta que empecé a esperar tus mensajes. Sonreía cuando veía que eras tú, te recordaba en canciones y en cualquier cosa que veía. Mi corazón empezó a hacer de las suyas.
-</p>
-</div>
+                <div>
+                    <h3>❤️ Y aquí estamos</h3>
+                    <p>
+                        Esa persona con la que empecé hablando de forma random terminó siendo la mujer de mis sueños.
+                    </p>
+                </div>
 
-<div>
-<h3>❤️ Y aquí estamos</h3>
-<p>
-Y sin darme cuenta, esa persona con la que empecé hablando de forma random terminó siendo la mujer de mis sueños.
-</p>
-</div>
+            </div>
 
-</div>
+        </div>
 
-</div>
-</section>
+    </section>
 
 
-<section class="seccion">
+    <section class="seccion">
 
-<div class="contenido">
+        <div class="contenido">
 
-<h2 class="titulo">Cosas que amo de ti 💕</h2>
+            <h2 class="titulo">
+                Cosas que amo de ti 💕
+            </h2>
 
-<div class="razones">
+            <div class="razones">
 
-<div class="razon">
-<span>😊</span>
-Tu sonrisa
-</div>
+                <div class="razon">
+                    <span>😊</span>
+                    Tu sonrisa
+                </div>
 
-<div class="razon">
-<span>💬</span>
-Tus mensajes
-</div>
+                <div class="razon">
+                    <span>💬</span>
+                    Tus mensajes
+                </div>
 
-<div class="razon">
-<span>😂</span>
-Tus bromas
-</div>
+                <div class="razon">
+                    <span>😂</span>
+                    Tus bromas
+                </div>
 
-<div class="razon">
-<span>🫶</span>
-La forma en que me entiendes
-</div>
+                <div class="razon">
+                    <span>🫶</span>
+                    La forma en que me entiendes
+                </div>
 
-<div class="razon">
-<span>🌷</span>
-Tu forma de ser
-</div>
+                <div class="razon">
+                    <span>🌷</span>
+                    Tu forma de ser
+                </div>
 
-<div class="razon">
-<span>💗</span>
-Simplemente tú
-</div>
+                <div class="razon">
+                    <span>💗</span>
+                    Simplemente tú
+                </div>
 
-</div>
+            </div>
 
-<div class="frase">
-“Tan bobo.” — Darling, probablemente 😂
-</div>
+            <div class="frase">
+                “Tan bobo.” — Darling 😂
+            </div>
 
-</div>
-</section>
+        </div>
 
+    </section>
 
-<section class="seccion">
 
-<div class="contenido">
+    <section class="seccion">
 
-<h2 class="titulo">Un recuerdo que nunca voy a olvidar 🥹</h2>
+        <div class="contenido">
 
-<div class="recuerdo">
+            <h2 class="titulo">
+                Un recuerdo que nunca voy a olvidar 🥹
+            </h2>
 
-<p>
-La vez que te pedí que fueras mi novia.
-</p>
+            <div class="recuerdo">
 
-<p style="margin-top:20px;">
-Todavía recuerdo tu cara de incredulidad. Te reías y me preguntabas si era una broma porque simplemente no te lo creías.
-</p>
+                <p>
+                    La vez que te pedí que fueras mi novia.
+                </p>
 
-<p style="margin-top:20px;">
-Y yo solo podía reírme viendo tu reacción.
-</p>
+                <p>
+                    Todavía recuerdo tu cara de incredulidad. Te reías y me preguntabas si era una broma porque simplemente no te lo creías.
+                </p>
 
-<p style="margin-top:20px;">
-Creo que ese momento se quedó guardado en mi cabeza para siempre.
-</p>
+                <p>
+                    Y yo solo podía reírme viendo tu reacción.
+                </p>
 
-</div>
+                <p>
+                    Creo que ese momento se quedó guardado en mi cabeza para siempre.
+                </p>
 
-<div class="frase">
-El amor de esta y otras vidas eres tú. ♡
-</div>
+            </div>
 
-</div>
-</section>
+            <div class="frase">
+                El amor de esta y otras vidas eres tú. ♡
+            </div>
 
+        </div>
 
-<section class="seccion">
+    </section>
 
-<div class="contenido">
 
-<h2 class="titulo">Mi álbum favorito 📸</h2>
+    <section class="seccion">
 
-<p style="text-align:center;margin-bottom:25px;">
-Aquí van algunas de mis partes favoritas de nuestro universo.
-</p>
+        <div class="contenido">
 
-<div class="album">
+            <h2 class="titulo">
+                Mi álbum favorito 📸
+            </h2>
 
-<div class="foto">📷<br>Foto 1</div>
-<div class="foto">📷<br>Foto 2</div>
-<div class="foto">📷<br>Foto 3</div>
-<div class="foto">📷<br>Foto 4</div>
-<div class="foto">📷<br>Foto 5</div>
-<div class="foto">📷<br>Foto 6</div>
-<div class="foto">📷<br>Foto 7</div>
-<div class="foto">📷<br>Foto 8</div>
-<div class="foto">📷<br>Foto 9</div>
-<div class="foto">📷<br>Foto 10</div>
+            <p style="text-align:center;line-height:1.7;">
+                Algunas de mis partes favoritas de nuestro universo.
+            </p>
 
-</div>
+            <div class="album">
 
-<p class="pequeno" style="text-align:center;">
-Las fotos reales las ponemos después. 💗
-</p>
+                <div class="foto">📷<br>Foto 1</div>
+                <div class="foto">📷<br>Foto 2</div>
+                <div class="foto">📷<br>Foto 3</div>
+                <div class="foto">📷<br>Foto 4</div>
+                <div class="foto">📷<br>Foto 5</div>
+                <div class="foto">📷<br>Foto 6</div>
+                <div class="foto">📷<br>Foto 7</div>
+                <div class="foto">📷<br>Foto 8</div>
+                <div class="foto">📷<br>Foto 9</div>
+                <div class="foto">📷<br>Foto 10</div>
 
-</div>
-</section>
+            </div>
 
+        </div>
 
-<section class="seccion">
+    </section>
 
-<div class="contenido">
 
-<h2 class="titulo">Hay algo que quiero decirte... 💌</h2>
+    <section class="seccion">
 
-<div class="carta">
+        <div class="contenido">
 
-<p>
-Darling,
-</p>
+            <h2 class="titulo">
+                Hay algo que quiero decirte... 💌
+            </h2>
 
-<br>
+            <div class="carta">
 
-<p>
-No sé exactamente en qué momento dejaste de ser simplemente alguien con quien me gustaba hablar y te convertiste en alguien que ocupa un lugar tan enorme en mi corazón.
-</p>
+                <p>Darling,</p>
 
-<br>
+                <p>
+                    No sé exactamente en qué momento dejaste de ser simplemente alguien con quien me gustaba hablar y te convertiste en alguien que ocupa un lugar tan enorme en mi corazón.
+                </p>
 
-<p>
-Me encanta hacerte reír, molestarte, escuchar tus bromas y hasta que te rías de mí cuando me pasa alguna desgracia. 😂
-</p>
+                <p>
+                    Me encanta hacerte reír, molestarte, escuchar tus bromas y hasta que te rías de mí cuando me pasa alguna desgracia. 😂
+                </p>
 
-<br>
+                <p>
+                    Contigo siento que lo tengo todo: amor, felicidad, cariño, comprensión y respeto.
+                </p>
 
-<p>
-Contigo siento que lo tengo todo: amor, felicidad, cariño, comprensión y respeto.
-</p>
+                <p>
+                    Eres esa persona que hace que un día cualquiera se sienta especial solamente por estar ahí.
+                </p>
 
-<br>
+                <p>
+                    Y sí... a veces me quedo mirándote como un completo bobo.
+                    Pero es que, ¿cómo no hacerlo?
+                </p>
 
-<p>
-Eres esa persona que hace que un día cualquiera se sienta especial solamente por estar ahí.
-</p>
+                <p>
+                    Te amo más de lo que probablemente sé explicar.
+                </p>
 
-<br>
+                <p>
+                    Con amor,<br>
+                    <strong>Christian ♡</strong>
+                </p>
 
-<p>
-Y sí... a veces me quedo mirándote como un completo bobo.
-Pero es que, ¿cómo no hacerlo?
-</p>
+            </div>
 
-<br>
+        </div>
 
-<p>
-Te amo más de lo que probablemente sé explicar.
-</p>
+    </section>
 
-<br>
 
-<p>
-Con amor,
-<br>
-<strong>Christian ♡</strong>
-</p>
+    <section class="seccion">
 
-</div>
+        <div class="contenido final">
 
-</div>
-</section>
+            <h2>
+                Y si llegaste hasta aquí... 🌷
+            </h2>
 
+            <p>
+                Quiero que sepas que no hice esto porque necesitara una excusa para decirte que te amo.
+            </p>
 
-<section class="seccion">
+            <p>
+                Lo hice porque eres alguien demasiado importante para mí y quería construirte un pequeño lugar donde pudieras ver, aunque fuera una parte, de todo lo que significas para mí.
+            </p>
 
-<div class="contenido final">
+            <p>
+                Eres mi alegría, mi persona favorita y uno de mis sueños cumplidos.
+            </p>
 
-<h2>Y si llegaste hasta aquí... 🌷</h2>
+            <div class="frase">
+                Mi ninisita linda, te elegiría en esta vida y en todas las que vengan. 💗
+            </div>
 
-<p>
-Quiero que sepas que no hice esto porque necesitara una excusa para decirte que te amo.
-</p>
+            <button class="boton" id="sorpresaBtn">
+                Toca aquí, Darling 👀
+            </button>
 
-<p style="margin-top:20px;">
-Lo hice porque eres alguien demasiado importante para mí y quería construirte un pequeño lugar donde pudieras ver, aunque fuera una parte, de todo lo que significas para mí.
-</p>
+            <p id="sorpresa" style="display:none;">
+                JAJAJAJA, ¿de verdad pensaste que iba a terminar sin hacer una última locura? 😭💗
+                <br><br>
+                Te amo, boba. ♡
+            </p>
 
-<p style="margin-top:25px;">
-Eres mi alegría, mi persona favorita y uno de mis sueños cumplidos.
-</p>
+        </div>
 
-<div class="frase">
-Mi ninisita linda, te elegiría en esta vida y en todas las que vengan. 💗
-</div>
+    </section>
 
-<button class="boton" onclick="sorpresa()">
-Toca aquí, Darling 👀
-</button>
+</main>
 
-<p id="sorpresa" style="display:none;margin-top:25
+
+<script>
+
+const botonEntrar = document.getElementById("entrarBtn");
+const inicio = document.getElementById("inicio");
+const universo = document.getElementById("universo");
+
+botonEntrar.addEventListener("click", function() {
+
+    inicio.style.opacity = "0";
+
+    setTimeout(function() {
+
+        inicio.style.display = "none";
+        universo.style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "instant"
+        });
+
+    }, 1000);
+
+});
+
+
+document.getElementById("sorpresaBtn").addEventListener("click", function() {
+
+    const sorpresa = document.getElementById("sorpresa");
+
+    sorpresa.style.display = "block";
+
+    for (let i = 0; i < 20; i++) {
+
+        const corazon = document.createElement("div");
+
+        corazon.className = "corazon";
+        corazon.textContent = "💗";
+
+        corazon.style.left = Math.random() * 100 + "vw";
+        corazon.style.animationDelay = Math.random() * 2 + "s";
+
+        document.body.appendChild(corazon);
+
+        setTimeout(function() {
+            corazon.remove();
+        }, 7000);
+
+    }
+
+});
+
+</script>
+
+</body>
+    </html>
