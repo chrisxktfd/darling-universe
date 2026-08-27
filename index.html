@@ -247,7 +247,77 @@ h1 {
     0%,100% { transform: scale(1); }
     50% { transform: scale(1.15); }
 }
+.decoracion {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
 
+.decoracion span {
+    position: absolute;
+    bottom: -60px;
+    font-size: 25px;
+    opacity: 0;
+    animation: flotar 9s linear infinite;
+}
+
+.decoracion span:nth-child(1) {
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.decoracion span:nth-child(2) {
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.decoracion span:nth-child(3) {
+    left: 35%;
+    animation-delay: 4s;
+}
+
+.decoracion span:nth-child(4) {
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.decoracion span:nth-child(5) {
+    left: 65%;
+    animation-delay: 5s;
+}
+
+.decoracion span:nth-child(6) {
+    left: 80%;
+    animation-delay: 3s;
+}
+
+.decoracion span:nth-child(7) {
+    left: 28%;
+    animation-delay: 6s;
+}
+
+.decoracion span:nth-child(8) {
+    left: 88%;
+    animation-delay: 7s;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .7;
+    }
+
+    100% {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
 @media (max-width: 500px) {
     h1 {
         font-size: 38px;
@@ -261,6 +331,17 @@ h1 {
 </head>
 
 <body>
+
+<div class="decoracion">
+    <span>♡</span>
+    <span>✦</span>
+    <span>♡</span>
+    <span>✧</span>
+    <span>♡</span>
+    <span>✦</span>
+    <span>🌸</span>
+    <span>🦋</span>
+</div>
 
 <section id="inicio">
 
